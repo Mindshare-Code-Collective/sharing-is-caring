@@ -10,13 +10,13 @@ hier is new nav
 
 -----------------------------------------------------------
 
-###Woche 2: 09.10. bis 12.10: Figma/Nutzerstories:
+### Woche 2: 09.10. bis 12.10: Figma/Nutzerstories:
 
 -Figma: Projekt bildlich niederlegen/designen
 -Nutzerstories: Was soll der User mit dem Project erledigen können? -Welche Funktionalität soll er nutzen können?
 -NPM Module für Frontend raussuchen: z.B. Bootstrap, React, etc.
       
-###von Mandy via Slack:
+### von Mandy via Slack:
     
 Hier schon einmal eine Vorschau auf die Aufgaben der Woche 2 im finalen Projekt "Design Week":
     
