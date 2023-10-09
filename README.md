@@ -8,6 +8,8 @@ test test test
 
 hier is new nav
 
+hier ist auch footer button
+
 -----------------------------------------------------------
 
 ### Woche 2: 09.10. bis 12.10: Figma/Nutzerstories:
