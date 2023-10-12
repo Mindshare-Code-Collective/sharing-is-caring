@@ -2,7 +2,7 @@
 
 ### SCRUM Retrospective Board:
 
-https://metroretro.io/BOMHHQB5T7G1
+#### https://metroretro.io/BOMHHQB5T7G1
 -----------------------------------------------------------
 
 ### Woche 2: 09.10. bis 12.10: Figma/Nutzerstories:
