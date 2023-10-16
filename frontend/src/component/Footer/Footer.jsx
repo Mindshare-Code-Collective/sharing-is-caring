@@ -4,17 +4,12 @@ import instagram from './assets/instagram.png';
 import linkedIn from './assets/linkedin.png';
 import twitter from './assets/twitter.png';
 import './Footer.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas);
 
 const Footer = () => {
   return (
     <div className="footer">
           <div className="footer-col">
               <h4>Social Media</h4>
-                {/* <div className="social-media-links">  */}
                     <a href="url" target="_blank">
                       <img src={facebook} alt="Facebook"/>
                     </a>
@@ -27,7 +22,6 @@ const Footer = () => {
                     <a href="url" target="_blank">
                       <img src={linkedIn} alt="Instagram" height="50px" width="50px"/>
                     </a>  
-              {/* </div> */}
           </div>
           <div className="footer-col">
               <h4>sharing is caring</h4>
