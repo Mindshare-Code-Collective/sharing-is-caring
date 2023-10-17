@@ -9,6 +9,9 @@ const Home = () => {
         <Col lg="6" md="6">
           <h4 className='p-2'>Home Page</h4>
           <h4 className='p-2'>Home Page</h4>
+          <h4 className='p-2'>Home Page</h4>
+          <h4 className='p-2'>Home Page</h4>
+
 
         </Col>
       </Row>
