@@ -1,0 +1,22 @@
+.logo {
+    height: 120px;
+    width: 120px;
+    border-radius: 40px;
+   
+  }
+  nav a {
+    margin: 0 2rem;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.797) ;
+    font-weight: 500 !important;
+  }
+  .nav-link.active {
+    color: #b54f30 !important;
+  }
+  
+  Nav a:hover {
+    color: #b54f30  !important;
+  }
+  #navbarScroll{
+    background-color:#FEFBF8 ;
+  }
