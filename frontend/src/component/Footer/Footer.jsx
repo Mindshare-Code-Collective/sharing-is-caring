@@ -29,7 +29,7 @@ const Footer = () => {
                 <li>Über uns</li>
                 <li>Blog</li>
                 <li>Zertifikate</li>
-                <li>Newslet</li>
+                <li>Newsletter</li>
               </ul>
 
           </div>
