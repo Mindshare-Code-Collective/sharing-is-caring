@@ -38,7 +38,7 @@ const Footer = () => {
 
           </div>
           <div className="footer-col">
-            <h4>Hilfe200</h4>
+            <h4>Hilfe</h4>
           </div>
     </div>
   
