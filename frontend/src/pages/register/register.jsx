@@ -16,15 +16,15 @@ const Register = (props) => {
         <div className= "auth-form">
             <form className = "register-form" onSubmit={handleSubmit}>
               <h3>Register</h3>
-              <label for="name">Full Name</label>
-              <input value={name} name="name" id="name" placeholder="Full Name" type="text" onChange={e=>setName(e.target.value)}/>
+              <label for="name">Name</label>
+              <input value={name} name="name" id="name" placeholder="Name" type="text" onChange={e=>setName(e.target.value)}/>
               <label for="email">E-Mail</label>
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="e@mail.com" id="email" name="email" />
               <label for="password">Password</label>
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="*********" id="password" name="password" />
-              <button type="submit">Log In</button>
+              <button type="submit">Register!</button>
           </form>
-          <button onClick={() => props.onFormSwitch('login')}>Already have an account? Log In!</button>
+          <button className="button-switch" onClick={() => props.onFormSwitch('login')}>Already have an account? Log In!</button>
         </div>
       </div>
   )
