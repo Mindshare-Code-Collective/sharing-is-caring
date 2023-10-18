@@ -1,0 +1,27 @@
+.text_content {
+    margin-top:6rem;
+}
+.logo_text{
+    color: #b54f30;
+}
+.category_btn {
+    background: #b54f30;
+    color: #fff;
+    cursor: pointer;
+}
+.category_btn:hover {
+    background: #212245;
+    border-radius: 20px;
+}
+.category_btn:hover .category_icon {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+} 
+.category_icon {
+    transition: transform 0.3s ease;
+    padding-left:9px;
+}
+.legend{
+    background-color: #cea69a !important;
+    color: black !important;
+}
