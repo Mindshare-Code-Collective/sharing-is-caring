@@ -7,6 +7,7 @@ import Header from './component/Header/Header';
 import Home from './pages/homePage/Home.jsx';
 import Login from './pages/login/login.jsx';
 import Register from './pages/register/register.jsx';
+import Dashboard from './pages/dashboard/dashboard.jsx'
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
 
       <Footer />
 
+
+    {/* <Dashboard /> */}
     </div>
   );
 }

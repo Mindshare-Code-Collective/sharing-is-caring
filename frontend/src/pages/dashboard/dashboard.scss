@@ -1,0 +1,38 @@
+.dashboard-header-container {
+    position: fixed;
+    top: 0px;
+    background: #FEEEEE;
+    border: 1px solid black;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100vw;
+        .dashboard-header-row {
+            padding-top: 2rem;
+        } 
+}
+
+.search-bar input {
+    padding: 6px;
+    margin-bottom: 20px;
+}
+
+.dashboard-body-container {
+    margin-top: 95px;
+}
+
+.dashboard-side-bar {
+    background: #FEEEEE;
+    border: 1px solid black;
+    padding: 15px;
+    max-width: 20%;
+    height: 100vh;
+   /*  position: absolute; 
+    left: 0px; */
+}
+
+.dashboard-body {
+    background: #FEEEEE;
+    max-width: 100vw;
+    padding: 15px;
+
+}
