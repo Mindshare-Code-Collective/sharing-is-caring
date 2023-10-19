@@ -22,8 +22,11 @@ function App() {
         currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
       } */}
       <Header />
-      <Footer />
+  
       <Home />
+
+      <Footer />
+
     </div>
   );
 }
