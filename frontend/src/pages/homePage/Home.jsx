@@ -8,10 +8,17 @@ import Garten from '../../assets/Garten.jpg';
 import Kleidung from '../../assets/Kleidung.jpg';
 import Book03 from '../../assets/Book-03.jpg';
 import Spielzeug from '../../assets/Spielzeug-03.jpg';
+import Decoration from '../../assets/Decoration.jpg';
+import Book from '../../assets/Book.jpg';
+
+
+
+
 
 
 const Home = () => {
   return (
+  <>
    <section>
     <Container>
       <Row>
@@ -59,7 +66,38 @@ const Home = () => {
       </Row>
     </Container>
    </section>
-  )
-}
+   <section>
+    <Container>
+      <Row>
+        <Col lg="12">
+        <h2 className="text-center">POPULAR CATEGORIES</h2>
+        <div className="popular_category d-flex align-items-center justify-content-center gap-3 ">
+     <button className='all_category'>All</button>
+
+     <button className='d-flex align-items-center gap-2'>
+      <img src={Garten} alt="Garten_1" />
+      Garten
+      </button>
+
+     <button className='d-flex align-items-center gap-2'>
+      <img src={Book} alt="Book_03" />
+      Book
+      </button>
+
+      <button className='d-flex align-items-center gap-2'>
+      <img src={Decoration} alt="Decoration" />
+      Decoration</button>
+
+      <button className='d-flex align-items-center gap-2'>
+      <img src={Kleidung} alt="Clothes" />
+      Clothes</button>
+        </div>
+        </Col>
+      </Row>
+    </Container>
+   </section>
+   </>
+  );
+};
 
 export default Home

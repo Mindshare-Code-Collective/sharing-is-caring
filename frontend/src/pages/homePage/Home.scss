@@ -25,3 +25,29 @@
     background-color: #cea69a !important;
     color: black !important;
 }
+.all_category {
+    background:#fff !important;
+    border-radius:15px;
+    width: 5rem;
+    color:#b54f30 !important;
+}
+.popular_category {
+    background:#099e9d;
+    text-align:center;
+    margin-top:30px;
+    padding:20px 0px;
+    border-radius:8px;
+    height: 60px;
+}
+.popular_category button {
+    border:none;
+    outline: none;
+    padding:7px 20px;
+    background: transparent;
+    color:#fff;
+}
+
+.popular_category button img {
+    width:25px;
+    height:25px;
+}
