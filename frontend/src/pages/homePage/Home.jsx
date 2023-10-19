@@ -44,7 +44,7 @@ const Home = () => {
           
         </Col>
         <Col lg="6" md="6" >
-          <Carousel className='m-2 p-1'>
+           <Carousel className='m-2 p-1' autoPlay={true} interval={3000}>
               <div>
                   <img src={Garten} alt="Legend-1" />
                   <p className="legend">Garten</p>
