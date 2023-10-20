@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import {VscSearch} from 'react-icons/vsc'
 
 
 
@@ -39,7 +39,7 @@ function Header() {
             />
           </Col>
           <Col xs="auto">
-            <Button type="submit" className='btn'  style={{backgroundColor:'#B54F30'}}>Submit</Button>
+            <Button type="submit" className='btn'  style={{backgroundColor:'#B54F30'}}> <VscSearch /> </Button>
           </Col>
         </Row>
       </Form>
