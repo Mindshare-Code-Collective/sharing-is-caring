@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from "reactstrap";
 import './dashboard.scss';
-import Lupe from './assets/suche.png';
+
 
 const Dashboard = () => {
   return (
