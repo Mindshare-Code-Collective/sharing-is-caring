@@ -1,14 +1,18 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-exports.connect = async () => {
-    try {
-        const conn = await mongoose.connect(`${ process.env.DB_URL }${ process.env.DB_NAME }`);
+const conn = () => {
+    mongoose.connect(process.env.DB_URI, {
+       dbName: "sharing_is_caring",
+       useNewUrlParser: true,
+       useUnifiedTopology: true,
+    })
+    .then(() => {
+        console.log('Connected to the DB succesully');
+      })
+    .catch((err) => {
+        console.log(`DB connection err:, ${err}`);
+      });
+};
 
-        console.log(`MongoDB wurde verbunden auf ${ conn.connection.host }`);
-    } catch (error) {
-        console.log(error);
-    }
-}
+export default conn;
 
-exports.closeConnection = () => mongoose.closeConnection();
