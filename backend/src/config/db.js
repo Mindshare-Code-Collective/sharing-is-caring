@@ -7,7 +7,7 @@ const conn = () => {
        useUnifiedTopology: true,
     })
     .then(() => {
-        console.log('Connected to the DB succesully');
+        console.log('Connected to the DB successfully');
       })
     .catch((err) => {
         console.log(`DB connection err:, ${err}`);
