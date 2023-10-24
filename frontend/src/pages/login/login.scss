@@ -10,6 +10,8 @@
         flex-direction: column;
         align-items: center;
         text-align: left;
+        position: relative;
+        bottom: 5rem;
     } 
 }
 
@@ -25,10 +27,12 @@ input {
     border: none;
 }
 
-button {
+.button-switch-to-register , 
+.button-login {
     border: none;
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    margin: 5px;
+    margin-top: 15px;
 }
+

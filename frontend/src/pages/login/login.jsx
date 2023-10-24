@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './login.scss';
 
 const Login = (props) => {
@@ -19,9 +20,11 @@ const Login = (props) => {
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="e@mail.com" id="email" name="email" />
               <label for="password">Password</label>
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="*********" id="password" name="password" />
-              <button type="submit">Log In</button>
+              <button type="submit" className="button-login">Log In</button>
+            <Link to="/register">
+              <button className="button-switch-to-register">Don't have an account? Register!</button>
+            </Link>          
           </form>
-          <button onClick={() => props.onFormSwitch('register')}>Don't have an account? Register!</button>
       </div>
     </div>
   )
