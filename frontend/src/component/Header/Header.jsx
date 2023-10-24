@@ -28,6 +28,8 @@ function Header() {
               <Link to="/contact" className="nav-link">CONTACT</Link>
               <Link to="/login" className="nav-link">LOGIN</Link>
               <Link to="/register" className="nav-link">SIGN UP</Link>
+              {/* Das Dashboard ist nur temporär hier verlinkt, damit wir es uns anzeigen lassen können; später rufen wir das über Login/Register auf*/}
+              <Link to="/dashboard" className="nav-link">DASHBOARD</Link>
             </Nav>
             <Form inline className='form-search'>
         <Row>
