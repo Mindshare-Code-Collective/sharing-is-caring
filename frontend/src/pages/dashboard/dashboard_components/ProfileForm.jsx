@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+/**import React, { useContext } from "react";
 import { UserProfilesContext } from "../../../context/UserProfilesContext";
 
 export default function ProfileForm() {
@@ -24,9 +24,9 @@ export default function ProfileForm() {
         <p>User-Name:</p>
         <input type={"text"} name="name" />
         <p>Wohnort:</p>
-        <input type={"text"} name="Wohnort" />
+        <input type={"text"} name="wohnort" />
         <p>Zustellung:</p>
-        <input type={"url"} name="Zustellung" />
+        <input type={"url"} name="zustellung" />
         <p>Biete:</p>
         <input type={"text"} name="biete" />
         <p>Suche:</p>
@@ -36,4 +36,4 @@ export default function ProfileForm() {
       </form>
     </div>
   );
-}
+}*/

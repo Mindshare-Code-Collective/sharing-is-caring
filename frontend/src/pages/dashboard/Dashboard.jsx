@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import { UserProfilesContext } from "../../context/UserProfilesContext";
-import ProfileCard from "./dashboard_components/ProfileCard";
-import ProfileForm from "./dashboard_components/ProfileForm";
+//import { UserProfilesContext } from "../../context/UserProfilesContext";
+//import ProfileCard from "./dashboard_components/ProfileCard";
+//import ProfileForm from "./dashboard_components/ProfileForm";
+import UserProductsForm from "./dashboard_components/UserProductsForm";
 import { Container, Row, Col } from "reactstrap";
 import "./dashboard.scss";
+import AllProductsList from "./dashboard_components/AllProductsList";
 
 export default function Dashboard() {
-  const { userProfiles } = useContext(UserProfilesContext);
+  // const { userProfiles } = useContext(UserProfilesContext);
 
   return (
     <>
@@ -18,19 +20,23 @@ export default function Dashboard() {
             </Col>
             <Col>
               <h3>Profil</h3>
-              <div classname="profile-container">
+              {/* <div classname="profile-container">
                 {userProfiles &&
                   userProfiles.map((item, i) => (
                     <ProfileCard userProfile={item} key={i} />
-                  ))}
-              </div>
-              <div classname="profil-daten-formular">
+                  ))}  </div>*/}
+
+              {/* <div classname="profil-daten-formular">
                 <h3>Profil erstellen/überarbeiten</h3>
                 <ProfileForm />
-              </div>
+              </div> */}
             </Col>
             <Col>
               <p>zu verschenkende Dinge / Dienstleistungen</p>
+              <div>
+                <UserProductsForm />
+                <AllProductsList />
+              </div>
             </Col>
             <Col>
               <p>Chat</p>
