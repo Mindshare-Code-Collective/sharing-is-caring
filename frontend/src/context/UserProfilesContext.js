@@ -6,10 +6,10 @@ export const starterUserProfiles = [
   {
     name: "John",
     //image: "http://
-    Wohnort: "Berlin",
-    Zustellung: "nur Abholung",
-    Biete: "xyz",
-    Suche: "abc",
+    wohnort: "Berlin",
+    zustellung: "nur Abholung",
+    biete: "xyz",
+    suche: "abc",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function UserProfilesContextProvider({ children }) {
   }, [userProfiles]);
   return (
     <UserProfilesContext.Provider value={{ userProfiles, setUserProfiles }}>
-      {children}
+      {console.log(userProfiles)};{children}
     </UserProfilesContext.Provider>
   );
 }
