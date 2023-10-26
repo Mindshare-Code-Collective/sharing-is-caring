@@ -1,39 +1,29 @@
 import React, { useState } from 'react'
 
-export default function UserOffersForm() {
-    const [userProducts, setUserProducts] = useState([]);
-        
-        /* {
-        name: "Zimmerpflanze Einblatt",
-        kategorie: "Pflanze, Garten",
-        zustand: "gut",
-        zustellung: "Abholung",
-        sonstiges: "mittelgroß",
-        image: "hier kommt noch ein Foto",
-        usercontact: "pflanzenfreundin@web.de",
-      } */  
+export default function UserOffersForm(/* { userProducts, setUserProducts } */) {
+  const [userProducts, setUserProducts ] = useState([]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUserProducts([...userProducts,
+    {
+        name: e.target.name.value,
+        kategorie: e.target.kategorie.value,
+        zustand: e.target.zustand.value,
+        zustellung: e.target.zustellung.value,
+        sonstiges: e.target.sonstiges.value,
+        image: e.target.image.value,
+        userContact: e.target.usercontact.value, 
+      },      
+    ]);
+
+    e.target.reset(); // Zurücksetzen der Eingabefelder
+  };
   return (
     <div>
     <div className="user-product-form">
       <h4>Add a product:</h4>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setUserProducts([
-            ...userProducts,
-            {
-              name: e.target.name.value,
-              kategorie: e.target.kategorie.value,
-              zustand: e.target.zustand.value,
-              zustellung: e.target.zustellung.value,
-              sonstiges: e.target.sonstiges.value,
-              image: e.target.image.value,
-              userContact: e.target.usercontact.value,
-            },
-          ]);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <p>Name des Artikels:</p>
         <input type={"text"} name="name" />
         <p>Kategorie:</p>
@@ -53,5 +43,5 @@ export default function UserOffersForm() {
       </form>
     </div>
    </div>
-  )
+  );
 }
