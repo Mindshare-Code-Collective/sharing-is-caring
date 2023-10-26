@@ -18,10 +18,11 @@
 
 .dashboard-body-container {
     margin-top: 95px;
+    border: 1px solid black
 }
 
-.dashboard-side-bar {
-    background: #FEEEEE;
+.dashboard-profil {
+    background: lightblue;
     border: 1px solid black;
     padding: 15px;
     max-width: 20%;
@@ -31,8 +32,21 @@
 }
 
 .dashboard-body {
-    background: #FEEEEE;
+    background: lightgray;
     max-width: 100vw;
     padding: 15px;
 
+}
+
+.dashboard-allOffers {
+    border: 1px solid black;
+    background: lightcoral
+}
+
+.UsersOffersForm {
+    border: 1px solid red;
+}
+
+.UsersOffersList {
+    border: 1px solid green;
 }
