@@ -1,36 +1,90 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './register.scss';
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./register.scss";
 
 const Register = (props) => {
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ name, setName ] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
-  }
+  };
 
   return (
-      <div className = "auth-form-container"> 
-        <div className= "auth-form">
-            <form className = "register-form" onSubmit={handleSubmit}>
-              <h3>Register</h3>
-              <label for="name">Name</label>
-              <input value={name} name="name" id="name" placeholder="Name" type="text" onChange={e=>setName(e.target.value)}/>
-              <label for="email">E-Mail</label>
-              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="e@mail.com" id="email" name="email" />
-              <label for="password">Password</label>
-              <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="*********" id="password" name="password" />
-              <button type="submit" className="button-register">Register!</button>
-            <Link to='/login'>
-                <button className="button-switch-to-login">Already have an account? Log In!</button>
-            </Link>         
+    <Container style={{ width: "40%" }}>
+      <Row>
+        <div className="sec1">
+          <form onSubmit={handleSubmit}>
+            <h3 className="banner">ANMELDEN</h3>
+            <br />
+            <div>
+              <Col>
+                <label for="name">Name</label>
+                <input
+                  className="form-control"
+                  value={name}
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  type="text"
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Col>
+              <br />
+            </div>
+            <div>
+              <Col>
+                <label for="email">E-Mail</label>
+                <input
+                  className="form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  placeholder="email@mail.com"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </Col>
+            </div>
+            <br />
+            <div>
+              <Col>
+                {" "}
+                <label for="password">Password</label>
+                <input
+                  className="form-control"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  placeholder="*********"
+                  id="password"
+                  name="password"
+                  required
+                />
+              </Col>
+            </div>
+            <br />
+            <button type="submit" className="btn-btn">
+              Anmelden!
+            </button>
+            <Link to="/login">
+              <br />
+              <br />
+              <button className="btn-btn">
+                Schon angemeldet? Einloggen!
+              </button>
+            </Link>
           </form>
+          <br />
         </div>
-      </div>
-  )
-}
+      </Row>
+    </Container>
+  );
+};
 
-export default Register
+export default Register;

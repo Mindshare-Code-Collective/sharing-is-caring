@@ -1,25 +1,33 @@
-.auth-form-container {
+.sec1 {
     text-align: center;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: rgb(243, 180, 180);
-    .auth-form, .register-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        bottom: 3.65rem;
-    } 
+    font-family: "Courgette", cursive;
+    font-family: "Dancing Script", cursive;
+    font-family: "Satisfy", cursive;
+    font-size: 19px;
 }
 
+// .auth-form-container {
+//     text-align: center;
+//     display: flex;
+//     min-height: 100vh;
+//     align-items: center;
+//     justify-content: center;
+//     background: rgb(243, 180, 180);
+//     .auth-form, .register-form {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         position: relative;
+//         bottom: 3.65rem;
+//     } 
+// }
 
-.button-switch-to-login, .button-register {
-    border: none;
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 15px;
-}
+
+// .button-switch-to-login, .button-register {
+//     border: none;
+//     background-color: white;
+//     padding: 10px;
+//     border-radius: 10px;
+//     margin-top: 15px;
+// }
 
