@@ -1,38 +1,46 @@
-.login-form-container {
+.sec2 {
+    font-family: "Courgette", cursive;
+    font-family: "Dancing Script", cursive;
+    font-family: "Satisfy", cursive;
+    font-size: 19px;
     text-align: center;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: rgb(243, 180, 180);
-    .auth-form, .login-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: left;
-        position: relative;
-        bottom: 5rem;
-    } 
 }
 
-label {
-    text-align: left;
-    padding: 0.25rem 0;
-}
+// .login-form-container {
+//     text-align: center;
+//     display: flex;
+//     min-height: 100vh;
+//     align-items: center;
+//     justify-content: center;
+//     background: rgb(243, 180, 180);
+//     .auth-form, .login-form {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         text-align: left;
+//         position: relative;
+//         bottom: 5rem;
+//     } 
+// }
 
-input {
-    margin: 0.5rem 0;
-    padding: 1rem;
-    border-radius: 10px;
-    border: none;
-}
+// label {
+//     text-align: left;
+//     padding: 0.25rem 0;
+// }
 
-.button-switch-to-register , 
-.button-login {
-    border: none;
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 15px;
-}
+// input {
+//     margin: 0.5rem 0;
+//     padding: 1rem;
+//     border-radius: 10px;
+//     border: none;
+// }
+
+// .button-switch-to-register , 
+// .button-login {
+//     border: none;
+//     background-color: white;
+//     padding: 10px;
+//     border-radius: 10px;
+//     margin-top: 15px;
+// }
 
