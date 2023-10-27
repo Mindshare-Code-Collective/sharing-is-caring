@@ -15,7 +15,7 @@ import {VscSearch} from 'react-icons/vsc'
 
 function Header() {
   return (
-    <header>
+    <header className='header'>
       <Navbar collapseOnSelect expand="sm" variant="light">
         <Container>
           <Navbar.Brand as={Link} to="/home">
@@ -25,9 +25,9 @@ function Header() {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="m-auto">
               <Link to="/home" className="nav-link">HOME</Link>
-              <Link to="/contact" className="nav-link">CONTACT</Link>
-              <Link to="/login" className="nav-link">LOGIN</Link>
-              <Link to="/register" className="nav-link">SIGN UP</Link>
+              <Link to="/contact" className="nav-link">KONTAKT</Link>
+              <Link to="/login" className="nav-link">EINLOGGEN</Link>
+              <Link to="/register" className="nav-link">ANMELDEN</Link>
               {/* Das Dashboard ist nur temporär hier verlinkt, damit wir es uns anzeigen lassen können; später rufen wir das über Login/Register auf*/}
               <Link to="/dashboard" className="nav-link">DASHBOARD</Link>
             </Nav>

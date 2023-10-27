@@ -55,7 +55,7 @@ const Register = (props) => {
             <div>
               <Col>
                 {" "}
-                <label for="password">Password</label>
+                <label for="password">Passwort</label>
                 <input
                   className="form-control"
                   value={password}
@@ -69,6 +69,23 @@ const Register = (props) => {
               </Col>
             </div>
             <br />
+            <div>
+              <Col>
+                {" "}
+                <label for="password">Passwort bestätigen</label>
+                <input
+                  className="form-control"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  placeholder="*********"
+                  id="password"
+                  name="password"
+                  required
+                />
+              </Col>
+            </div>
+            <br/>
             <button type="submit" className="btn-btn">
               Anmelden!
             </button>
