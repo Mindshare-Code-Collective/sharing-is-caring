@@ -1,3 +1,9 @@
+.header {
+  font-family: "Courgette", cursive;
+  font-family: "Dancing Script", cursive;
+  font-family: "Satisfy", cursive;
+  font-size: 18px;
+}
 .logo {
     height: 120px;
     width: 120px;
@@ -26,6 +32,7 @@
   }
   .form-search input {
     border: #b54f30 solid 1px !important;
+    width: 200px;
   }
   .form-search input:focus {
     outline: none !important;
