@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import conn from './src/config/db.js';
 
 import pageRoute from './src/routes/pageRoute.js';
+import userRoute from './src/routes/userRoute.js';
 
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(express.json());
 
 //routes
 app.use("/", pageRoute)
+app.use("/users", userRoute)
 
 
 
