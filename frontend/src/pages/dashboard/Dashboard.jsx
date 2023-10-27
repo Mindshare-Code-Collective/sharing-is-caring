@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./dashboard.scss";
 import UserProfile from "./dashboard_components/UserProfile";
@@ -8,8 +8,12 @@ import AllOffersList from "./dashboard_components/AllOffersList";
 import UserProfileForm from "./dashboard_components/UserProfileForm";
 
 export default function Dashboard() {
- 
+  const [ userProducts, setUserProducts ] = useState([]);
 
+  const handleProductSubmit = (newProduct) => {
+    setUserProducts([...userProducts, newProduct]);
+  };
+ 
   return (
     <>
       <section>
@@ -56,14 +60,13 @@ export default function Dashboard() {
               <div>
               <h3>Angebote des Users</h3>
               <div className="UsersOffersForm">
-              <UserOffersForm />
+              <UserOffersForm onProductSubmit = {handleProductSubmit} />
               </div>
               <div className="UsersOffersList">
-              <UserOffersList />
+              <UserOffersList userProducts={userProducts}/>
               </div>
 
               </div>
-
             </Col>
           </Row>
           <Row className="dashboard-allOffers">
