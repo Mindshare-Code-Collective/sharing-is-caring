@@ -22,7 +22,7 @@ export default function UserOffersForm({ onProductSubmit }) {
     <div className="user-product-form">
       <h4>Add a product:</h4>
       <form onSubmit={handleSubmit}>
-        <p>Name des Artikels:</p>
+        <p>Name des Artikels*:</p>
         <input 
           type="text" 
           name="name"
@@ -30,7 +30,7 @@ export default function UserOffersForm({ onProductSubmit }) {
           value={userProduct.name}
           onChange={(e) => setUserProducts({ ...userProduct, name: e.target.value })} 
         />
-        <p>Kategorie:</p>
+        <p>Kategorie*:</p>
         <input 
           type="text" 
           name="kategorie"
@@ -38,14 +38,15 @@ export default function UserOffersForm({ onProductSubmit }) {
           value={userProduct.kategorie}
           onChange={(e) => setUserProducts({ ...userProduct, kategorie: e.target.value })} 
         />
-        <p>Zustand:</p>
+        <p>Zustand*:</p>
         <input 
           type={"text"} 
-          name="zustand" 
+          name="zustand"
+          required 
           value={userProduct.zustand}
           onChange={(e) => setUserProducts({ ...userProduct, zustand: e.target.value})}  
         />
-        <p>Zustellung:</p>
+        <p>Zustellung*:</p>
         <input 
           type={"text"} 
           name="zustellung"
@@ -67,7 +68,7 @@ export default function UserOffersForm({ onProductSubmit }) {
           value={userProduct.image}
           onChange={(e) => setUserProducts({ ...userProduct, image: e.target.value})}
         />
-        <p>User Kontakt:</p>
+        <p>User Kontakt*:</p>
         <input 
           type={"email"} 
           name="usercontact"
