@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./register.scss";
 
 const Register = (props) => {
@@ -8,9 +9,25 @@ const Register = (props) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  const handleSubmit = (e) => {
+  const baseBackendUrl = "http://localhost:3333/users/register";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
+    try {
+      const response = await axios.post(baseBackendUrl, {
+        name: name,
+        email: email,
+        password: password,
+      });
+      console.log(response);
+      setName("");
+      setEmail("");
+      setPassword("");
+      
+    } catch (error) {
+      console.error(error);
+      
+    }
   };
 
   return (
