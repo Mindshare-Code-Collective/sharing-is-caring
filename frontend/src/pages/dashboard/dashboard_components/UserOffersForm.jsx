@@ -47,13 +47,18 @@ export default function UserOffersForm({ onProductSubmit }) {
           onChange={(e) => setUserProducts({ ...userProduct, zustand: e.target.value})}  
         />
         <p>Zustellung*:</p>
-        <input 
+ {/*        <input 
           type={"text"} 
           name="zustellung"
           required
           value={userProduct.zustellung}
           onChange={(e) => setUserProducts({ ...userProduct, zustellung: e.target.value})} 
-        />
+        /> */}
+        <select id="zustellung" name="zustellung">
+          <option value="" disabled selected>Bitte auswählen:</option>
+          <option value="abholung">Abholung</option>
+          <option value="versand">Versand</option>
+        </select>
         <p>Sonstige Infos:</p>
         <input 
           type={"text"} 
