@@ -19,11 +19,11 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     console.log('req.body', req.body);
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email});
 
     let same = false;
 

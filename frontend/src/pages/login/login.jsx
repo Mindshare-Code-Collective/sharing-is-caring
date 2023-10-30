@@ -1,16 +1,32 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./login.scss";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const baseBackendUrl = "http://localhost:3333/users/login";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
+    const user = {email:email, password:password};
+    try {
+      const response = await axios.post(baseBackendUrl, user);
+      console.log(response.data);
+      setEmail("");
+      setPassword("");
+
+      //setUserInfo(user);
+      
+    } catch (error) {
+      console.error(error);
+      
+    }
   };
+
 
   return (
     <Container style={{ width: "40%" }}>

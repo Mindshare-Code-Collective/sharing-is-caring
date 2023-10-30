@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from "cors";
 import dotenv from 'dotenv';
 import conn from './src/config/db.js';
 
@@ -19,11 +20,13 @@ const hostname = '127.0.0.1'
 //static files middleware
 app.use(express.json());
 
-
+app.use(cors());
 
 //routes
 app.use("/", pageRoute)
 app.use("/users", userRoute)
+
+
 
 
 
