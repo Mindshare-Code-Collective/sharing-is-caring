@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from 'dotenv';
 import conn from './src/config/db.js';
 
-import pageRoute from './src/routes/pageRoute.js';
 import userRoute from './src/routes/userRoute.js';
 
 
@@ -23,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 //routes
-app.use("/", pageRoute)
+
 app.use("/users", userRoute)
 
 
