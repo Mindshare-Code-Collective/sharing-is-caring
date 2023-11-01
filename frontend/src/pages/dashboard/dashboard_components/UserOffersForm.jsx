@@ -3,29 +3,56 @@ import React, { useState } from 'react'
 export default function UserOffersForm({ onProductSubmit }) {
   const [userProduct, setUserProducts ] = useState({
     name: '',
-    kategorie: '',
-    zustand: '',
-    zustellung: '',
-    sonstiges: '',
-    image: '',
-    userContact: ''
+    category: '',
+    trade: '',
+    condition: '',
+    shipment: '',
+    description: '',
+    picture: '',
+    contact: ''
   });
 
-  const handleSubmit = (e) => {
+/*   const handleSubmit = (e) => {
     e.preventDefault();
     onProductSubmit(userProduct);
     e.target.reset();
   }
+ */
+const handleSubmit = (e) => {
+    e.preventDefault();
+    onProductSubmit(userProduct);
+
+    fetch('http://localhost:3333/products/', {
+      method: "POST",
+      headers : {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userProduct)
+      })
+      .then(response => {
+      if(response.ok) {
+        console.log("Daten erfolgreich gesendet!");
+      } else {
+        console.error("Fehler beim Senden der Daten");
+      }
+      })
+      .catch(error => {
+        console.error("Fehler beim Senden der Daten:", error)
+      });
+      e.target.reset();
+      e.currentTarget.reset();
+ };
 
   return (
     <div>
     <div className="user-product-form">
       <h4>Add a product:</h4>
-      <form onSubmit={handleSubmit}>
+      <form action="http://localhost:3333/products/" method="post" onSubmit={handleSubmit}>
         <p>Name des Artikels*:</p>
         <input 
           type="text" 
           name="name"
+          id="name"
           required 
           value={userProduct.name}
           onChange={(e) => setUserProducts({ ...userProduct, name: e.target.value })} 
@@ -33,48 +60,69 @@ export default function UserOffersForm({ onProductSubmit }) {
         <p>Kategorie*:</p>
         <input 
           type="text" 
-          name="kategorie"
+          name="category"
+          id="category"
           required 
-          value={userProduct.kategorie}
-          onChange={(e) => setUserProducts({ ...userProduct, kategorie: e.target.value })} 
+          value={userProduct.category}
+          onChange={(e) => setUserProducts({ ...userProduct, category: e.target.value })} 
         />
+        <p>Trade*:</p>
+        <select 
+          id="trade" 
+          name="trade"
+          value={userProduct.trade} 
+          onChange={(e) => setUserProducts({ ...userProduct, trade: e.target.value })}
+        >
+            <option value="" disabled selected>Bitte auswählen:</option>
+            <option value="Tauschen">Tauschen</option>
+            <option value="Verschenken">Verschenken</option>
+        </select>
         <p>Zustand*:</p>
-        <input 
-          type={"text"} 
-          name="zustand"
-          required 
-          value={userProduct.zustand}
-          onChange={(e) => setUserProducts({ ...userProduct, zustand: e.target.value})}  
-        />
+        <select 
+          id="condition" 
+          name="condition"
+          value={userProduct.condition}
+          onChange={(e) => setUserProducts({ ...userProduct, condition: e.target.value })}
+        >
+            <option value="" disabled selected>Bitte auswählen:</option>
+            <option value="Neu">Neu</option>
+            <option value="Gebraucht">Gebraucht</option>
+        </select>
         <p>Zustellung*:</p>
+        <select 
+          id="shipment" 
+          name="shipment"
+          value={userProduct.shipment}
+          onChange={(e) => setUserProducts({ ...userProduct, shipment: e.target.value })}
+        >
+          <option value="" disabled selected>Bitte auswählen:</option>
+          <option value="Abholung">Abholung</option>
+          <option value="Versand">Versand</option>
+        </select>
+        <p>Beschreibung:</p>
         <input 
           type={"text"} 
-          name="zustellung"
-          required
-          value={userProduct.zustellung}
-          onChange={(e) => setUserProducts({ ...userProduct, zustellung: e.target.value})} 
-        />
-        <p>Sonstige Infos:</p>
-        <input 
-          type={"text"} 
-          name="sonstiges"
-          value={userProduct.sonstiges}
-          onChange={(e) => setUserProducts({ ...userProduct, sonstiges: e.target.value})} 
+          name="description"
+          id="description"
+          value={userProduct.description}
+          onChange={(e) => setUserProducts({ ...userProduct, description: e.target.value})} 
         />
         <p>Bild:</p>
         <input 
           type={"text"} 
-          name="image" 
-          value={userProduct.image}
-          onChange={(e) => setUserProducts({ ...userProduct, image: e.target.value})}
+          name="picture"
+          id="picture" 
+          value={userProduct.picture}
+          onChange={(e) => setUserProducts({ ...userProduct, picture: e.target.value})}
         />
         <p>User Kontakt*:</p>
         <input 
           type={"email"} 
-          name="usercontact"
+          name="contact"
+          id="contact"
           required 
-          value={userProduct.usercontact}
-          onChange = {(e) => setUserProducts({ ...userProduct, usercontact: e.target.value })} 
+          value={userProduct.contact}
+          onChange = {(e) => setUserProducts({ ...userProduct, contact: e.target.value })} 
         />
         <br></br>
         <button>add</button>
