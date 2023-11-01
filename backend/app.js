@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from "cors";
 import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
 import { conn, localConn } from './src/config/db.js';
 
 import pageRoute from './src/routes/pageRoute.js';
