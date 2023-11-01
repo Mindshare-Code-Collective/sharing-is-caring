@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { conn, localConn } from './src/config/db.js';
 
-import pageRoute from './src/routes/pageRoute.js';
 import userRoute from './src/routes/userRoute.js';
 import productRoute from './src/routes/productRoute.js';
 
@@ -31,9 +30,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //routes
+
 app.use("/", pageRoute);
 app.use("/users", userRoute);
 app.use("/products", productRoute);
+
 
 
 
