@@ -31,7 +31,7 @@ app.use(cors());
 
 //routes
 
-app.use("/", pageRoute);
+/* app.use("/", pageRoute); */
 app.use("/users", userRoute);
 app.use("/products", productRoute);
 

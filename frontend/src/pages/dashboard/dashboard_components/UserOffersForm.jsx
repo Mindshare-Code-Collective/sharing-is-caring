@@ -21,6 +21,8 @@ export default function UserOffersForm({ onProductSubmit }) {
 const handleSubmit = (e) => {
     e.preventDefault();
     onProductSubmit(userProduct);
+    e.target.reset();
+    e.currentTarget.reset();
 
     fetch('http://localhost:3333/products/', {
       method: "POST",
@@ -39,8 +41,6 @@ const handleSubmit = (e) => {
       .catch(error => {
         console.error("Fehler beim Senden der Daten:", error)
       });
-      e.target.reset();
-      e.currentTarget.reset();
  };
 
   return (
