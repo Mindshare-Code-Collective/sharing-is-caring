@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./login.scss";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const baseBackendUrl = "http://localhost:3333/users/login";
 
@@ -18,6 +19,7 @@ const Login = (props) => {
       console.log(response.data);
       setEmail("");
       setPassword("");
+      navigate("/dashboard");
 
       //setUserInfo(user);
       
