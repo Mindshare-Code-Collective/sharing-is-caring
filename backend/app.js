@@ -1,11 +1,12 @@
 import express from 'express';
 import cors from "cors";
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { conn, localConn } from './src/config/db.js';
-
 import userRoute from './src/routes/userRoute.js';
 import productRoute from './src/routes/productRoute.js';
+import { checkUser } from './src/middlewares/authMiddleware.js';
 
 dotenv.config();
 
@@ -27,11 +28,15 @@ const hostname = '127.0.0.1';
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
 app.use(cors());
 
-//routes
 
-/* app.use("/", pageRoute); */
+app.use(cookieParser());
+
+//routes
+app.use('*', checkUser);
 app.use("/users", userRoute);
 app.use("/products", productRoute);
 

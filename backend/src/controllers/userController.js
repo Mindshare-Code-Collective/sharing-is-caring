@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
+import Product from "../models/productModel.js";
 
 
 const createUser = async (req, res) => {
@@ -80,4 +81,23 @@ const logoutUser = (req, res) => {
   res.redirect("/");
 };
 
-export { createUser, loginUser, logoutUser };
+
+const getAUser = async (req,res)=>  {
+  try {
+    const user = await User.findById({ _id: req.params.id });
+    const products = await Product.find({ user: user._id });
+    res.status(200).render('user', {
+      user,
+      products
+    });
+  } catch (error) {
+    res.status(500).json({
+      succeded: false,
+      error,
+    });
+  }
+}
+
+
+
+export { createUser, loginUser, logoutUser , getAUser};
