@@ -31,9 +31,9 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { name, password } = req.body;
     console.log('req.body', req.body);
-    const user = await User.findOne({ email});
+    const user = await User.findOne({ name});
     let same = false;
     if (user) {
       same = await bcrypt.compare(password, user.password);

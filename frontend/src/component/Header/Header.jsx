@@ -5,15 +5,29 @@ import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import logo from './assets/logo.png';
 import './Header.scss';
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {VscSearch} from 'react-icons/vsc'
-
+import { useContext } from "react";
+import { AppContext } from "../../AppContext";
 
 
 function Header() {
+  const {userInfo, setUserInfo} = useContext(AppContext);
+  const baseBackendUrl = "http://localhost:3333/users/logout";
+
+  const logoutHandler = async () => {
+      try {
+        await axios.get(baseBackendUrl);
+        setUserInfo(null);    
+      } catch (error) {
+        console.error(error);        
+      }
+    };
+
   return (
     <header className='header'>
       <Navbar collapseOnSelect expand="sm" variant="light">
@@ -26,10 +40,22 @@ function Header() {
             <Nav className="m-auto">
               <Link to="/home" className="nav-link">HOME</Link>
               <Link to="/contact" className="nav-link">KONTAKT</Link>
+              {
+                userInfo ? null : 
+                <>
               <Link to="/login" className="nav-link">EINLOGGEN</Link>
               <Link to="/register" className="nav-link">ANMELDEN</Link>
-              {/* Das Dashboard ist nur temporär hier verlinkt, damit wir es uns anzeigen lassen können; später rufen wir das über Login/Register auf*/}
-              <Link to="/dashboard" className="nav-link">DASHBOARD</Link>
+              </>
+}
+              {
+                userInfo ? 
+                <>
+                <Link to="/dashboard" className="nav-link">DASHBOARD</Link>
+                <Link to="/" className="nav-link" onClick={logoutHandler()}>ABMELDEN</Link>
+                </>
+                : null
+              }
+
             </Nav>
             <Form inline className='form-search'>
         <Row>

@@ -1,34 +1,35 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import "./login.scss";
+import axios from "axios";
+import { useContext } from "react";
+import { AppContext } from "../../AppContext";
+
 
 const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const {setUserInfo} = useContext(AppContext);
   const baseBackendUrl = "http://localhost:3333/users/login";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = {email:email, password:password};
+    const user = {name:name, password:password};
     try {
       const response = await axios.post(baseBackendUrl, user);
       console.log(response.data);
-      setEmail("");
+      setName("");
       setPassword("");
-      navigate("/dashboard");
 
-      //setUserInfo(user);
+      setUserInfo(user);
       
     } catch (error) {
       console.error(error);
       
     }
   };
-
 
   return (
     <Container style={{ width: "40%" }}>
@@ -41,15 +42,15 @@ const Login = (props) => {
 
             <div>
               <Col>
-                <label for="email">E-Mail </label>
+                <label for="name">Name </label>
                 <input
                   className="form-control"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  placeholder="email@mail.com"
-                  id="email"
-                  name="email"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="name"
+                  placeholder="name"
+                  id="name"
+                  name="name"
                   required
                 />
               </Col>
@@ -72,6 +73,7 @@ const Login = (props) => {
               </Col>
             </div>
             <br />
+
             <button type="submit" className="btn-btn">
               Einloggen
             </button>
@@ -91,3 +93,4 @@ const Login = (props) => {
 };
 
 export default Login;
+
