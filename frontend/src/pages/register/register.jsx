@@ -24,7 +24,7 @@ const Register = (props) => {
       setName("");
       setEmail("");
       setPassword("");
-      navigate("login");
+      navigate("/login");
       
     } catch (error) {
       console.error(error);
