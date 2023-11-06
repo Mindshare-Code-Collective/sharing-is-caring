@@ -3,14 +3,18 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Routers from '../../routes/Routers';
 
+
+
 const Layout = () => {
+
+
   return (
     <div>
         <Header />
-           <Routers />
-      <Footer />
+        <Routers />
+        <Footer />
     </div>
   )
 }
 
-export default Layout
+export default Layout;
