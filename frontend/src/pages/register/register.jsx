@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./register.scss";
 
@@ -8,6 +8,7 @@ const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
   const baseBackendUrl = "http://localhost:3333/users/register";
 
@@ -23,6 +24,7 @@ const Register = (props) => {
       setName("");
       setEmail("");
       setPassword("");
+      navigate("login");
       
     } catch (error) {
       console.error(error);
