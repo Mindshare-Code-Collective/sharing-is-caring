@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import config from '../../component/config/config';
 
 export default function AddNewProduct(props) {
 
@@ -54,7 +55,7 @@ export default function AddNewProduct(props) {
     userProduct.picture = "";
 
 
-    fetch('http://localhost:3333/products/', {
+    fetch(`${config.routes.product.AddNewProduct}`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

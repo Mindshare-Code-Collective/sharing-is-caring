@@ -1,24 +1,29 @@
 import React, { createContext, useState, useEffect} from "react";
 import axios from "axios";
 // import {productsAll} from "./assets/products";
+import config from './component/config/config';
 
 export const AppContext = createContext();
-
-
-
-const ProductUrl = "http://localhost:3333/products";
-const UserUrl = "http://localhost:3333/users/dashboard";
-
 
 export const AppProvider = ({ children }) => {
     // const [isLoading, setIsLoading] = useState(true);
     const [products, setProducts] = useState();
-    const [userInfo, setUserInfo] = useState();
+    //const [userInfo, setUserInfo] = useState();
     const [userObject, setUserObject] = useState();
   
+    const storedUserInfo = localStorage.getItem('userInfo');
+    const [userInfo, setUserInfo] = useState(() => {
+      try {
+        return storedUserInfo ? JSON.parse(storedUserInfo) : null;
+      } catch (e) {
+        console.error('Invalid JSON:', storedUserInfo);
+        return null;
+      }
+    });
+
   useEffect(() => {
       (async () => {
-        const response = (await axios.get(ProductUrl)).data;
+        const response = (await axios.get(config.routes.product.getAllProducts)).data;
         setProducts(response);
       })();
   }, []);
@@ -26,7 +31,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
       if(userInfo) {
         (async () => {
-          const response = (await axios.get(`${UserUrl}/${userInfo?.id}`)).data;
+          const response = (await axios.get(`${config.routes.user.dashboard + userInfo?.id}`)).data;
           setUserObject(response);
          // console.log(userObject);
         })();

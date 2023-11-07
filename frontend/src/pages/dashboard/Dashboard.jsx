@@ -19,8 +19,9 @@ export default function Dashboard(props) {
   return (
     <>
       <DashboardUserHeader userInfo={userInfo}/>
-      <div className="text-center fs-2 mt-5">Meine Produkte</div>
-      <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5">
+      <div className="text-center fs-2 mt-5"><h3>MEINE PRODUCTE</h3></div>
+
+      <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5 sec1 container" >
       {
     userInfo && userObject && userObject.products.map((product, index) => (
       <ProductCard key={index} product={product} />

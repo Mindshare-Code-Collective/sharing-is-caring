@@ -5,23 +5,26 @@ import "./login.scss";
 import axios from "axios";
 import { useContext } from "react";
 import { AppContext } from "../../AppContext";
+import config from '../../component/config/config';
 
 const Login = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const { setUserInfo } = useContext(AppContext);
-  const baseBackendUrl = "http://localhost:3333/users/login";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { name: name, password: password };
     try {
-      const response = await axios.post(baseBackendUrl, user);
+      const response = await axios.post(`${config.routes.user.login}`, user);
+      setUserInfo({ name: user.name, id: response.data.userId });
+      // Convert the object to a JSON string
+      const userInfo = JSON.stringify({ name: user.name, id: response.data.userId });
+      // Store the JSON string in localStorage
+      localStorage.setItem('userInfo', userInfo);
       console.log(response.data);
       setName("");
       setPassword("");
-
-      setUserInfo({ name: user.name, id: response.data.userId });
     } catch (error) {
       console.error(error);
     }
