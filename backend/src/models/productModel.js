@@ -52,7 +52,7 @@ const productSchema = new Schema({
     picture: {
         type: String, /* issued for later changes */
         /* required: true, */
-        trim: true,
+
     },
 
     /* via populate method: */
@@ -60,19 +60,7 @@ const productSchema = new Schema({
         type: String,
         trim: true,
     },
-    
-    /* 
-    productpath : {
-        type: String,
-        required: true,
-    },
-    
-    photopath : {
-        type: String,
-        required: true,
-    },
-    */
-    
+     
     uploadedAt: {
         type: Date,
         default: Date.now,
@@ -96,3 +84,5 @@ const productSchema = new Schema({
 const Product = mongoose.model("Product", productSchema)
 
 export default Product;
+
+

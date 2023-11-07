@@ -6,40 +6,35 @@ export const AppContext = createContext();
 
 
 
-const url = "http://localhost:3333/products";
+const ProductUrl = "http://localhost:3333/products";
+const UserUrl = "http://localhost:3333/users/dashboard";
+
 
 export const AppProvider = ({ children }) => {
     // const [isLoading, setIsLoading] = useState(true);
     const [products, setProducts] = useState();
     const [userInfo, setUserInfo] = useState();
+    const [userObject, setUserObject] = useState();
   
-
-
-    useEffect(() => {
+  useEffect(() => {
       (async () => {
-        const response = (await axios.get(url)).data;
+        const response = (await axios.get(ProductUrl)).data;
         setProducts(response);
       })();
-    }, [products]);
-
-    // useEffect(async () => {
-
-    //   fetch(url, {
-    //     method: "GET",
-    //     headers : {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     })
-    //     .then(response => response 
-    //     ).then(data => { 
-    //       setProducts(data);
-    //       console.log(products);
-    //     })
-    //     .catch(error => {
-    //       console.error(error)
-    //     });
-
-    // }, [products]);
+  }, []);
+  
+  useEffect(() => {
+      if(userInfo) {
+        (async () => {
+          const response = (await axios.get(`${UserUrl}/${userInfo?.id}`)).data;
+          setUserObject(response);
+         // console.log(userObject);
+        })();
+        } else {
+          console.log("You have to log in first to see yor dashboard")
+        }
+  
+  },[userInfo]);
 
   
     return (
@@ -48,6 +43,8 @@ export const AppProvider = ({ children }) => {
           products,
           userInfo,
           setUserInfo,
+          setUserObject,
+          userObject,
         }} >
         {children}
       </AppContext.Provider>

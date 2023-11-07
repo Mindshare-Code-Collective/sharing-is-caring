@@ -1,20 +1,12 @@
 import Product from "../models/productModel.js";
 import User from "../models/userModel.js";
-//import { v2 as cloudinary } from 'cloudinary';
-//import fs from 'fs';
+
 
 const createProduct = async (req, res) => {
-
-  /*  const result = await cloudinary.uploader.upload(
-    req.files.image.tempFilePath,
-    {
-      use_filename: true,
-      folder: 'fotoFriend',
-    }
-  ); */
-
+  
   try {
       const newProduct = new Product();
+      const user = await User.findById(req.body.user);
 
       newProduct.name = req.body.name;
       newProduct.category = req.body.category;
@@ -23,20 +15,12 @@ const createProduct = async (req, res) => {
       newProduct.shipment = req.body.shipment;
       newProduct.description = req.body.description;
       newProduct.picture = req.body.picture;
-      newProduct.contact = req.body.contact;
-      newProduct.user = req.body.user;
+      newProduct.user = user;
       
       await newProduct.save();
-      res.status(200).json({ success: true, data: newProduct});
-      // foto friend
-      /* user: res.locals.user._id,
-      url: result.secure_url,
-      image_id: result.public_id, */
+      res.status(200).json({ success: true, data: newProduct});  
     }
 
-  //fs.unlinkSync(req.files.image.tempFilePath); // yüklenen temp dosyasini kaldirmasini istiyorum...
-    
-  
    catch (error) {
     res.status(500).json({
       success: false,
@@ -58,22 +42,6 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-// const getUserProducts = async (req, res) => {
-//   try {
-//     const products = res.locals.user
-//       ? await Product.find({ user: { $ne: res.locals.user._id } })
-//       : await Product.find({});
-//     res.status(200).render('products', {
-//       products,
-//       link: 'products',
-//     });
-//   } catch (error) {
-//     res.status(500).json({
-//       succeded: false,
-//       error,
-//     });
-//   }
-// };
 
 const getAProduct = async (req, res) => {
   try {
@@ -144,3 +112,4 @@ const updateProduct = async (req, res) => {
 };
 
 export { createProduct, getAllProducts, getAProduct, deleteProduct, updateProduct };
+

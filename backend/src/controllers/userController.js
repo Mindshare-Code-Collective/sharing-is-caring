@@ -3,11 +3,12 @@ import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import Product from "../models/productModel.js";
 
-
 const createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
     res.status(201).json({ user: user._id });
+
+    
   } catch (error) {
     console.log('ERROR', error);
 
@@ -23,7 +24,7 @@ const createUser = async (req, res) => {
       });
     }
 
-    console.log('ERRORS2:::', errors2);
+    //console.log('ERRORS2:::', errors2);
 
     res.status(400).json(errors2);
   }
@@ -52,7 +53,8 @@ const loginUser = async (req, res) => {
       });
       res.status(200).json({
         succeded: true,
-        token: token
+        token: token,
+        userId:user._id
       });
   
     } else {
@@ -73,22 +75,37 @@ const createToken = (userId) => {
     expiresIn:'1d',
   }) 
 }
+const getDashboardData = async (req, res) => {
+  // const user = await User.findById({_id:req.params.id})
+  const products = await Product.find({user: req.params.id });
+  // const user = await User.findById({_id : res.locals.user._id}).populate([
+  //   'followings',
+  //   'followers',
+  // ]);
+  res.status(200).json({
+    products
+  });
+};
 
 const logoutUser = (req, res) => {
   res.cookie('jwt', "",{
     maxAge:1,
   });
-  res.redirect("/");
 };
 
 
-const getAUser = async (req,res)=>  {
+const getAUser = async (req, res) => {
   try {
     const user = await User.findById({ _id: req.params.id });
+    const inFollowers = user.followers.some((follower)=> {
+      return follower.equals(res.locals.user._id)
+    })
     const products = await Product.find({ user: user._id });
     res.status(200).render('user', {
       user,
-      products
+      products,
+      link: 'users',
+      inFollowers
     });
   } catch (error) {
     res.status(500).json({
@@ -96,8 +113,9 @@ const getAUser = async (req,res)=>  {
       error,
     });
   }
-}
+};
 
 
 
-export { createUser, loginUser, logoutUser , getAUser};
+export { createUser, loginUser, logoutUser , getAUser, getDashboardData};
+
