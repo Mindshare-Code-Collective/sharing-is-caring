@@ -11,7 +11,7 @@ import Messages from "./Messages";
  
 export default function Dashboard(props) {
   // const [ userProducts, setUserProducts ] = useState([]);
-  const { userInfo, products } = useContext(AppContext);
+  const { userInfo, userObject } = useContext(AppContext);
   // const handleProductSubmit = (newProduct) => {
   //   setUserProducts([...userProducts, newProduct]);
   // };
@@ -22,14 +22,10 @@ export default function Dashboard(props) {
       <div className="text-center fs-2 mt-5">Meine Produkte</div>
       <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5">
       {
-        products?.data.map((product, index) => {
-            return (
-            <ProductCard key={index} product={product} />
-        )
-        }
-
-          )
-      }
+    userInfo && userObject && userObject.products.map((product, index) => (
+      <ProductCard key={index} product={product} />
+    ))
+  }
       </div>
       <Messages/>
 

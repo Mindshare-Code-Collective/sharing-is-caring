@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Container, Row, Col, ListGroup } from 'react-bootstrap';
-import "./Messages.scss";
+
 
 export default function Messages(props) {
     // const [ userProducts, setUserProducts ] = useState([]);

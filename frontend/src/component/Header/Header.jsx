@@ -21,7 +21,7 @@ function Header() {
 
   const logoutHandler = async () => {
       try {
-        await axios.get(baseBackendUrl);
+        await axios.post(baseBackendUrl);
         setUserInfo(null);    
       } catch (error) {
         console.error(error);        
@@ -51,7 +51,7 @@ function Header() {
                 userInfo ? 
                 <>
                 <Link to="/dashboard" className="nav-link">DASHBOARD</Link>
-                <Link to="/" className="nav-link" onClick={logoutHandler()}>ABMELDEN</Link>
+                <Link to="/" className="nav-link" onClick={logoutHandler}>ABMELDEN</Link>
                 </>
                 : null
               }

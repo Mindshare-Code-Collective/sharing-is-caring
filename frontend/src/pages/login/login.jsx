@@ -6,28 +6,24 @@ import axios from "axios";
 import { useContext } from "react";
 import { AppContext } from "../../AppContext";
 
-
 const Login = (props) => {
-
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const {setUserInfo} = useContext(AppContext);
+  const { setUserInfo } = useContext(AppContext);
   const baseBackendUrl = "http://localhost:3333/users/login";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = {name:name, password:password};
+    const user = { name: name, password: password };
     try {
       const response = await axios.post(baseBackendUrl, user);
       console.log(response.data);
       setName("");
       setPassword("");
 
-      setUserInfo(user);
-      
+      setUserInfo({ name: user.name, id: response.data.userId });
     } catch (error) {
       console.error(error);
-      
     }
   };
 
@@ -80,9 +76,7 @@ const Login = (props) => {
             <Link to="/register">
               <br />
               <br />
-              <button className="btn-btn">
-                Neu hier ? jetzt registeren!
-              </button>
+              <button className="btn-btn">Neu hier ? jetzt registeren!</button>
             </Link>
           </form>
           <br />
@@ -93,4 +87,3 @@ const Login = (props) => {
 };
 
 export default Login;
-
