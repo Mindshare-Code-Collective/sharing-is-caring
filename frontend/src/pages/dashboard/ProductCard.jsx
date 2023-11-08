@@ -1,5 +1,10 @@
 import image01 from "../../assets/Book-3.jpg";
 import "./productCard.scss";
+
+
+
+
+
 export default function ProductCard(props) {
   // const [ userProducts, setUserProducts ] = useState([]);
   const { product } = props;
@@ -43,7 +48,8 @@ export default function ProductCard(props) {
     //     </div>
     //   </div>
     //  </div>
-    <div className="gallery col-md-3 col-sm-12">
+    
+    <div className="gallery col-md-3 col-sm-12 ">
       <div className="container_with d-flex flex-column justify-content-center align-items-center">
         <div className="row">
           <div className="col-md-12">
@@ -61,5 +67,6 @@ export default function ProductCard(props) {
         </div>
       </div>
     </div>
+
   );
 }
