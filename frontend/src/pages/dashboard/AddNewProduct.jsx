@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import config from '../../component/config/config';
+// import config from '../../component/config/config';
 
 export default function AddNewProduct(props) {
 
@@ -55,7 +55,7 @@ export default function AddNewProduct(props) {
     userProduct.picture = "";
 
 
-    fetch(`${config.routes.product.AddNewProduct}`, {
+    fetch('http://localhost:3333/products/', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -95,8 +95,13 @@ export default function AddNewProduct(props) {
             <Form.Label>Kategorie
               <span className="text-danger">  *</span>
             </Form.Label>
-            <Form.Control id="category" type="text" name="category" placeholder="Kategorie" required
-              onChange={handleChange} />
+            <Form.Control id="trade" name="trade" as="select" required onChange={handleChange}>
+              <option value="" disabled selected>Bitte auswählen:</option>
+              <option value="garten">Garten</option>
+              <option value="bücher">Bücher</option>
+              <option value="decoration">Decoration</option>
+              <option value="kleidung">Kleidung</option>
+            </Form.Control>
           </Form.Group>
           <Form.Group className="mb-2">
             <Form.Label>Trade
