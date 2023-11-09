@@ -11,7 +11,7 @@ export const AppProvider = ({ children }) => {
     //const [userInfo, setUserInfo] = useState();
     const [userObject, setUserObject] = useState();
   
-    const storedUserInfo = localStorage.getItem('userInfo');
+    const storedUserInfo = sessionStorage.getItem('userInfo');
     const [userInfo, setUserInfo] = useState(() => {
       try {
         return storedUserInfo ? JSON.parse(storedUserInfo) : null;
