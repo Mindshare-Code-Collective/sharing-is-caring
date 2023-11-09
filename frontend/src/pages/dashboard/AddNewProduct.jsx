@@ -80,6 +80,9 @@ export default function AddNewProduct(props) {
       
         // Add the new product to the products state in context
         addProductToState(response.data);
+        
+        // Reload the page
+        window.location.reload();
       } else {
         console.error('Error sending data:', response.data.error.message);
       }
