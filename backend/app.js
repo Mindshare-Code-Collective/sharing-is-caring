@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from "cors";
+import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
@@ -10,46 +10,30 @@ import { checkUser } from './src/middlewares/authMiddleware.js';
 
 dotenv.config();
 
-//connection to the DB
-const [ node, script, ...args ] = process.argv;
-if(args[0] === "local") {
+// Connection to the DB
+const [node, script, ...args] = process.argv;
+if (args[0] === 'local') {
     localConn();
-}
-else {
+} else {
     conn();
 }
-
 
 const app = express();
 const port = process.env.PORT;
 const hostname = '127.0.0.1';
-
-//static files middleware
-app.use(express.json());
+// Middleware for parsing JSON request bodies with a specified size limit
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-
 app.use(cors());
-
-
+// Middleware for parsing JSON request bodies with a specified size limit (redundant)
+app.use(express.json({ limit: '50mb' }));
 app.use(cookieParser());
 
-//routes
+// routes
 app.use('*', checkUser);
-app.use("/users", userRoute);
-app.use("/products", productRoute);
-
-
-
-
-
-
-
+app.use('/users', userRoute);
+app.use('/products', productRoute);
 
 app.listen(port, hostname, () => {
-    console.log(`Server läuft auf, http://${hostname}:${port}/`)
+    console.log(`Server läuft auf, http://${hostname}:${port}/`);
 });
-
-
-
