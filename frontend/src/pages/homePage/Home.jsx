@@ -10,13 +10,16 @@ import Book03 from '../../assets/Book-03.jpg';
 import Spielzeug from '../../assets/Spielzeug-03.jpg';
 import Decoration from '../../assets/Decoration.jpg';
 import Book from '../../assets/Book.jpg';
-
+import { useContext } from "react";
+import { AppContext } from "../../AppContext";
+import ProductCard from "../dashboard/ProductCard";
 
 
 
 
 
 const Home = () => {
+  const {userObject } = useContext(AppContext);
   return (
   <>
    <section>
@@ -94,10 +97,17 @@ const Home = () => {
         </div>
         </Col>
       </Row>
+      <Row >
+      {
+     userObject && userObject.products.map((product, index) => (
+      <ProductCard key={index} product={product} />
+    ))
+  }
+      </Row>
     </Container>
    </section>
    </>
   );
 };
 
-export default Home
+export default Home 

@@ -3,19 +3,17 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./register.scss";
+import config from '../../component/config/config';
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const navigate = useNavigate();
-
-  const baseBackendUrl = "http://localhost:3333/users/register";
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(baseBackendUrl, {
+      const response = await axios.post(`${config.routes.users.register}`, {
         name: name,
         email: email,
         password: password,

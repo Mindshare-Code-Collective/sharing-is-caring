@@ -13,20 +13,22 @@ import Col from 'react-bootstrap/Col';
 import {VscSearch} from 'react-icons/vsc'
 import { useContext } from "react";
 import { AppContext } from "../../AppContext";
-
+import config from '../config/config';
 
 function Header() {
   const {userInfo, setUserInfo} = useContext(AppContext);
-  const baseBackendUrl = "http://localhost:3333/users/logout";
-
   const logoutHandler = async () => {
-      try {
-        await axios.post(baseBackendUrl);
-        setUserInfo(null);    
-      } catch (error) {
-        console.error(error);        
+    try {
+      const response = await axios.post(`${config.routes.user.logout}`);
+      if (response.status === 200) {
+        setUserInfo(null);
+      } else {
+        console.error("Logout failed: " + response.data); // Log an error message
       }
-    };
+    } catch (error) {
+      console.error(error); // Handle any other errors
+    }
+  };
 
   return (
     <header className='header'>
