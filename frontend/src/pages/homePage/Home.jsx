@@ -29,23 +29,23 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (products) {
-      let filtered = products;
-
+    if (Array.isArray(products)) {
+      let filtered = [...products];
+  
       // Filter by category
       if (selectedCategory !== categoryNames.All) {
         filtered = filtered.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase());
       }
-
+  
       // Filter by search term
       if (searchTerm.trim() !== '') {
         const lowerCaseSearchTerm = searchTerm.toLowerCase();
         filtered = filtered.filter((product) => product.name.toLowerCase().includes(lowerCaseSearchTerm));
       }
-
+  
       setFilteredProducts(filtered);
     }
-  }, [selectedCategory, searchTerm, products, categoryNames.All]);
+  }, [selectedCategory, searchTerm, products, categoryNames.All]);    
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);

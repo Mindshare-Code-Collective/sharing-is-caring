@@ -58,14 +58,28 @@ export const AppProvider = ({ children }) => {
     }
   }, [userInfo]);
 
+  const addProductToState = (newProduct) => {
+    console.log('Adding product to state:', newProduct);
+  
+    // Assuming the server responds with the new product in response.data.data
+    if (newProduct && newProduct.data) {
+      setProducts((prevProducts) => [...prevProducts, newProduct.data]);
+      setUserObject((prevUserObject) => ({ ...prevUserObject, ...newProduct.data }));
+    } else {
+      console.error('Invalid server response for adding product:', newProduct);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
         products,
+        setProducts,
         userInfo,
         setUserInfo,
         setUserObject,
         userObject,
+        addProductToState,
       }}
     >
       {children}

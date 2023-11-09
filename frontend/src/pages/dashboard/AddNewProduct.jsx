@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
-
+import { AppContext } from '../../AppContext';
 import config from '../../component/config/config';
 
 export default function AddNewProduct(props) {
-
   const { showModal, setShowModal, userInfo } = props;
+  const { addProductToState } = useContext(AppContext);
+
   const [userProduct, setUserProducts] = useState({
     name: '',
     category: '',
     trade: '',
     condition: '',
     shipment: '',
+    description: '', // Add description to the state
     picture: '',
     user: userInfo?.id,
   });
@@ -24,7 +26,7 @@ export default function AddNewProduct(props) {
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-  
+
     if (type === 'file') {
       const file = files[0];
       const reader = new FileReader();
@@ -32,12 +34,11 @@ export default function AddNewProduct(props) {
         reader.readAsDataURL(file);
         reader.onload = () => {
           const base64Data = reader.result;
-  
-          setUserProducts(prevUserProduct => ({
+
+          setUserProducts((prevUserProduct) => ({
             ...prevUserProduct,
             picture: base64Data,
-          }));
-  
+          }));  
           //console.log('Base64 data:', base64Data);
         };
         reader.onerror = (error) => {
@@ -50,7 +51,7 @@ export default function AddNewProduct(props) {
         [name]: value,
       });
     }
-  };  
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -74,15 +75,19 @@ export default function AddNewProduct(props) {
       });
   
       if (response.data.success) {
-        console.log('Data successfully sent!');
+        console.log('Data successfully sent!', response.data);
         setShowModal(!showModal);
+      
+        // Add the new product to the products state in context
+        addProductToState(response.data);
       } else {
         console.error('Error sending data:', response.data.error.message);
       }
     } catch (error) {
       console.error('Error sending data:', error);
     }
-  };    
+    console.log('Reached the end of handleSubmit');
+  };
 
   return (
     <Modal size="lg" show={showModal} onHide={handleToggleModal}>
@@ -91,7 +96,7 @@ export default function AddNewProduct(props) {
       </Modal.Header>
       <Modal.Body>
         <Form id="request" className="main_form" method="POST" action="http://localhost:3333/products/">
-          <Form.Group className="mb-2">
+        <Form.Group className="mb-2">
             <Form.Label>Name des Artikels
               <span className="text-danger">  *</span>
             </Form.Label>
