@@ -31,21 +31,21 @@ const Home = () => {
   useEffect(() => {
     if (userObject && userObject.products) {
       let filtered = userObject.products;
-
+  
       // Filter by category
       if (selectedCategory !== categoryNames.All) {
         filtered = filtered.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase());
       }
-
+  
       // Filter by search term
       if (searchTerm.trim() !== '') {
         const lowerCaseSearchTerm = searchTerm.toLowerCase();
         filtered = filtered.filter((product) => product.name.toLowerCase().includes(lowerCaseSearchTerm));
       }
-
+  
       setFilteredProducts(filtered);
     }
-  }, [selectedCategory, searchTerm, userObject]);
+  }, [selectedCategory, searchTerm, userObject, categoryNames.All]);  
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -62,7 +62,7 @@ const Home = () => {
         className={`category_button ${selectedCategory.toLowerCase() === category.toLowerCase() ? 'active' : ''}`}
         onClick={() => handleCategoryChange(category)}
       >
-        <img src={getImageByCategory(category)} alt={`${category} Image`} />
+        <img src={getImageByCategory(category)} alt={`${category} Category`} />
         {category}
       </button>
     ));
