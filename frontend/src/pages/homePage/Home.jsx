@@ -15,7 +15,7 @@ import ProductCard from '../dashboard/ProductCard';
 import { AppContext } from '../../AppContext';
 
 const Home = () => {
-  const { userObject } = useContext(AppContext);
+  const { products } = useContext(AppContext);
   const [selectedCategory, setSelectedCategory] = useState('Alle');
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -24,28 +24,28 @@ const Home = () => {
     All: 'Alle',
     Garten: 'Garten',
     Book: 'Bücher',
-    Decoration: 'Dekoration',
+    Decoration: 'decoration',
     Clothes: 'Kleidung',
   };
 
   useEffect(() => {
-    if (userObject && userObject.products) {
-      let filtered = userObject.products;
-  
+    if (products) {
+      let filtered = products;
+
       // Filter by category
       if (selectedCategory !== categoryNames.All) {
         filtered = filtered.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase());
       }
-  
+
       // Filter by search term
       if (searchTerm.trim() !== '') {
         const lowerCaseSearchTerm = searchTerm.toLowerCase();
         filtered = filtered.filter((product) => product.name.toLowerCase().includes(lowerCaseSearchTerm));
       }
-  
+
       setFilteredProducts(filtered);
     }
-  }, [selectedCategory, searchTerm, userObject, categoryNames.All]);  
+  }, [selectedCategory, searchTerm, products, categoryNames.All]);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
