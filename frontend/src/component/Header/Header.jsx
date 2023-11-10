@@ -22,6 +22,7 @@ function Header() {
       const response = await axios.post(`${config.routes.user.logout}`);
       if (response.status === 200) {
         setUserInfo(null);
+        sessionStorage.setItem('userInfo', null);
       } else {
         console.error("Logout failed: " + response.data); // Log an error message
       }

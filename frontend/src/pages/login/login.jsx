@@ -21,7 +21,7 @@ const Login = (props) => {
       // Convert the object to a JSON string
       const userInfo = JSON.stringify({ name: user.name, id: response.data.userId });
       // Store the JSON string in localStorage
-      localStorage.setItem('userInfo', userInfo);
+      sessionStorage.setItem('userInfo', userInfo);
       console.log(response.data);
       setName("");
       setPassword("");

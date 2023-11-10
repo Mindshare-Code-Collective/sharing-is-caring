@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-// import config from '../../component/config/config';
+import axios from 'axios';
+import { AppContext } from '../../AppContext';
+import config from '../../component/config/config';
 
 export default function AddNewProduct(props) {
-
   const { showModal, setShowModal, userInfo } = props;
+  const { addProductToState } = useContext(AppContext);
+
   const [userProduct, setUserProducts] = useState({
     name: '',
     category: '',
     trade: '',
     condition: '',
     shipment: '',
-    picture: "",
+    description: '', // Add description to the state
+    picture: '',
     user: userInfo?.id,
   });
 
@@ -31,15 +35,16 @@ export default function AddNewProduct(props) {
         reader.onload = () => {
           const base64Data = reader.result;
 
-          setUserProducts({
-            ...userProduct,
-            [name]: base64Data,
-          });
-        }
+          setUserProducts((prevUserProduct) => ({
+            ...prevUserProduct,
+            picture: base64Data,
+          }));  
+          //console.log('Base64 data:', base64Data);
+        };
         reader.onerror = (error) => {
           console.error(error);
-        }
-      };
+        };
+      }
     } else {
       setUserProducts({
         ...userProduct,
@@ -47,35 +52,45 @@ export default function AddNewProduct(props) {
       });
     }
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    localStorage.setItem(`${userProduct.name},${userProduct.category},${userProduct.description}`, userProduct.picture);
-    userProduct.picture = "";
-
-
-    fetch('http://localhost:3333/products/', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userProduct)
-    })
-      .then(response => {
-        if (response.ok) {
-          console.log("Daten erfolgreich gesendet!");
-          setShowModal(!showModal);
-
-        } else {
-          console.error("Fehler beim Senden der Daten");
-        }
-      })
-      .catch(error => {
-        console.error("Fehler beim Senden der Daten:", error)
+  
+    const requestData = {
+      name: userProduct.name,
+      category: userProduct.category,
+      trade: userProduct.trade,
+      condition: userProduct.condition,
+      shipment: userProduct.shipment,
+      description: userProduct.description,
+      user: userProduct.user,
+      picture: userProduct.picture,
+    };
+  
+    try {
+      const response = await axios.post(config.routes.product.createProduct, requestData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
+  
+      if (response.data.success) {
+        console.log('Data successfully sent!', response.data);
+        setShowModal(!showModal);
+      
+        // Add the new product to the products state in context
+        addProductToState(response.data);
+        
+        // Reload the page
+        window.location.reload();
+      } else {
+        console.error('Error sending data:', response.data.error.message);
+      }
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
+    console.log('Reached the end of handleSubmit');
   };
-
 
   return (
     <Modal size="lg" show={showModal} onHide={handleToggleModal}>
@@ -84,7 +99,7 @@ export default function AddNewProduct(props) {
       </Modal.Header>
       <Modal.Body>
         <Form id="request" className="main_form" method="POST" action="http://localhost:3333/products/">
-          <Form.Group className="mb-2">
+        <Form.Group className="mb-2">
             <Form.Label>Name des Artikels
               <span className="text-danger">  *</span>
             </Form.Label>
@@ -95,7 +110,7 @@ export default function AddNewProduct(props) {
             <Form.Label>Kategorie
               <span className="text-danger">  *</span>
             </Form.Label>
-            <Form.Control id="trade" name="trade" as="select" required onChange={handleChange}>
+            <Form.Control id="category" name="category" as="select" required onChange={handleChange}>
               <option value="" disabled selected>Bitte auswählen:</option>
               <option value="garten">Garten</option>
               <option value="bücher">Bücher</option>
@@ -144,7 +159,7 @@ export default function AddNewProduct(props) {
             <Form.Label>Wählen Sie ein Bild aus
               <span className="text-danger">  *</span>
             </Form.Label>
-            <Form.Control type="file" name="picture" onChange={handleChange} />
+            <Form.Control id="picture" type="file" name="picture" onChange={handleChange} />
           </Form.Group>
         </Form>
       </Modal.Body>
