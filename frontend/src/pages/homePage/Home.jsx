@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './Home.scss';
 import { Container, Row, Col, Input } from 'reactstrap';
-import { HiArrowNarrowRight } from 'react-icons/hi';
+// import { HiArrowNarrowRight } from 'react-icons/hi';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Garten from '../../assets/Garten.jpg';
 import Kleidung from '../../assets/Kleidung.jpg';
 import Alle from '../../assets/Alle.png';
+import Elektronik from '../../assets/Elektronik.png';
 import Book03 from '../../assets/Book-03.jpg';
 import Spielzeug from '../../assets/Spielzeug-03.jpg';
+import Spielzeug2 from '../../assets/Spielzeug-2.jpg';
 import Decoration from '../../assets/Decoration.jpg';
 import Book from '../../assets/Book.jpg';
 import ProductCard from '../dashboard/ProductCard';
@@ -24,8 +26,11 @@ const Home = () => {
     All: 'Alle',
     Garten: 'Garten',
     Book: 'Bücher',
-    Decoration: 'decoration',
+    Decoration: 'Dekoration',
     Clothes: 'Kleidung',
+    Schuhe: 'Schuhe',
+    Spielzeug:'Spielzeug',
+    Elektronik: 'Elektronik',
   };
 
   useEffect(() => {
@@ -78,6 +83,12 @@ const Home = () => {
         return Decoration || 'Decoration';
       case categoryNames.Clothes:
         return Kleidung || 'Clothes';
+        case categoryNames.Schuhe:
+          return Spielzeug2 || 'Schuhe';
+        case categoryNames.Spielzeug:
+          return Spielzeug || 'Spielzeug';
+          case categoryNames.Elektronik:
+            return Elektronik || 'Elektronik';
       case categoryNames.All:
         return Alle || 'Alle';
       default:
@@ -96,18 +107,13 @@ const Home = () => {
                   Sharing is Caring -
                 </h2>
                 <h2 className="mb-4 text_title">
-                  <span>" Teaching our children to share is teaching them </span> <br />
-                  <span> compassion and love. "</span>
+                  <span>Teaching our children to share is teaching them </span> <br />
+                  <span> compassion and love. </span>
                 </h2>
                 <p>Kevin Heath</p>
               </div>
-              <div className="">
-                <button className="category_btn d-flex justify-content-center ">
-                  Category
-                  <span className='category_icon'>
-                    <HiArrowNarrowRight />
-                  </span>
-                </button>
+              <div className="search-bar">
+                  <Input type="text" placeholder="Search by product name" value={searchTerm} onChange={handleSearchChange} />
               </div>
             </Col>
             <Col lg="6" md="6">
@@ -141,9 +147,7 @@ const Home = () => {
               <h2 className="text-center">POPULAR CATEGORIES</h2>
               <div className="popular_category d-flex align-items-center justify-content-center gap-3">
                 {renderCategoryButtons()}
-                <div className="search-bar">
-                  <Input type="text" placeholder="Search by product name" value={searchTerm} onChange={handleSearchChange} />
-                </div>
+
               </div>
             </Col>
           </Row>

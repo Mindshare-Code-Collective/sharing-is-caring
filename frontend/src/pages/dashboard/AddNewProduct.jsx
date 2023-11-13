@@ -114,8 +114,11 @@ export default function AddNewProduct(props) {
               <option value="" disabled selected>Bitte auswählen:</option>
               <option value="garten">Garten</option>
               <option value="bücher">Bücher</option>
-              <option value="decoration">Decoration</option>
+              <option value="dekoration">Dekoration</option>
               <option value="kleidung">Kleidung</option>
+              <option value="schuhe">Schuhe</option>
+              <option value="spielzeug">Spielzeug</option>
+              <option value="elektronik">Elektronik</option>
             </Form.Control>
           </Form.Group>
           <Form.Group className="mb-2">

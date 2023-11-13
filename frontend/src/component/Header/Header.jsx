@@ -6,11 +6,6 @@ import { Link } from 'react-router-dom';
 import logo from './assets/logo.png';
 import './Header.scss';
 import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import {VscSearch} from 'react-icons/vsc'
 import { useContext } from "react";
 import { AppContext } from "../../AppContext";
 import config from '../config/config';
@@ -60,7 +55,7 @@ function Header() {
               }
 
             </Nav>
-            <Form inline className='form-search'>
+            {/* <Form inline className='form-search'>
         <Row>
           <Col xs="auto">
             <Form.Control
@@ -73,7 +68,7 @@ function Header() {
             <Button type="submit" className='btn'  style={{backgroundColor:'#B54F30'}}> <VscSearch /> </Button>
           </Col>
         </Row>
-      </Form>
+      </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
