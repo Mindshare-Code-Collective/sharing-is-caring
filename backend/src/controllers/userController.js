@@ -24,8 +24,6 @@ const createUser = async (req, res) => {
       });
     }
 
-    //console.log('ERRORS2:::', errors2);
-
     res.status(400).json(errors2);
   }
 };
@@ -70,18 +68,15 @@ const loginUser = async (req, res) => {
     });
   }
 };
+
 const createToken = (userId) => {
   return jwt.sign({userId}, process.env.TOKEN_SECRET, {
     expiresIn:'1d',
   }) 
 }
+
 const getDashboardData = async (req, res) => {
-  // const user = await User.findById({_id:req.params.id})
   const products = await Product.find({user: req.params.id });
-  // const user = await User.findById({_id : res.locals.user._id}).populate([
-  //   'followings',
-  //   'followers',
-  // ]);
   res.status(200).json({
     products
   });
@@ -93,7 +88,6 @@ const logoutUser = (req, res) => {
   });
   res.status(200).json({ message: "Logout successful" });
 };
-
 
 const getAUser = async (req, res) => {
   try {
