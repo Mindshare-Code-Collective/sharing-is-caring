@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import { conn, localConn } from './src/config/db.js';
 import userRoute from './src/routes/userRoute.js';
 import productRoute from './src/routes/productRoute.js';
+import messageRoute from './src/routes/messageRoute.js';
 import { checkUser } from './src/middlewares/authMiddleware.js';
 
 dotenv.config();
@@ -38,6 +39,7 @@ app.use(cookieParser());
 app.use('*', checkUser);
 app.use('/users', userRoute);
 app.use('/products', productRoute);
+app.use('/messages', messageRoute);
 
 
 
