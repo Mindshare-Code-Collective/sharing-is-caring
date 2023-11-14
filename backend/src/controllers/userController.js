@@ -76,10 +76,22 @@ const createToken = (userId) => {
 }
 
 const getDashboardData = async (req, res) => {
-  const products = await Product.find({user: req.params.id });
-  res.status(200).json({
-    products
-  });
+  try {
+    const products = await Product.find({ user: req.params.id });
+
+    const conversations = await Conversation.find({
+      $or: [{ owner: req.params.id }, { customer: req.params.id }],
+    }).populate(['owner', 'customer']);
+
+    res.status(200).json({
+      products,
+      conversations,
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 const logoutUser = (req, res) => {

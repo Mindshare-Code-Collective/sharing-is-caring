@@ -46,10 +46,7 @@ const getAllProducts = async (req, res) => {
 const getAProduct = async (req, res) => {
   try {
    const product = await Product.findById({ _id: req.params.id }).populate({ path: 'user', select: '_id' });
-   /* let isOwner = false;
-   if (res.locals.user) {
-     isOwner = product.user.equals(res.locals.user._id);
-   } */
+
     res.status(200).json({ success: true, data: product});
   } catch (error) {
     res.status(500).json({
@@ -60,11 +57,10 @@ const getAProduct = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  /* console.log(req.params.id); */
+
   try {
     const product = await Product.findById(req.params.id);
-    /* const productId = product.image_id;
-    await cloudinary.uploader.destroy(productId); */
+
     await Product.findOneAndRemove({ _id: req.params.id });
     res.status(200).json({ success: true, data: product, message: "Product deleted."});
   } catch (error) {
@@ -78,20 +74,7 @@ const deleteProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    /* if (req.files) {
-      const productId = product.image_id;
-      await cloudinary.uploader.destroy(productId);
-      const result = await cloudinary.uploader.upload(
-        req.files.image.tempFilePath,
-        {
-          use_filename: true,
-          folder: 'fotoFriend',
-        }
-      );
-      product.url = result.secure_url;
-      product.image_id = result.public_id;
-      fs.unlinkSync(req.files.image.tempFilePath);
-    } */
+  
     product.name = req.body.name;
     product.category = req.body.category;
     product.trade = req.body.trade;
