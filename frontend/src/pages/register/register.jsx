@@ -8,11 +8,19 @@ import config from '../../component/config/config';
 const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [name, setName] = useState("");
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (password !== confirmPassword) {
+        console.error("Passwords don't match!");
+        setPasswordsMatch(false);
+        return;
+      }
       const response = await axios.post(`${config.routes.user.register}`, {
         name: name,
         email: email,
@@ -92,8 +100,8 @@ const Register = (props) => {
                 <label for="password">Passwort bestätigen</label>
                 <input
                   className="form-control"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   type="password"
                   placeholder="*********"
                   id="password"
@@ -102,6 +110,9 @@ const Register = (props) => {
                 />
               </Col>
             </div>
+            {!passwordsMatch && (
+              < div style={{ color: "red "}}>Passwörter stimmen nicht überein!</div>
+            )}
             <br/>
             <button type="submit" className="btn-btn">
               Anmelden!
