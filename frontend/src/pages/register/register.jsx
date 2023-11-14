@@ -13,7 +13,7 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${config.routes.users.register}`, {
+      const response = await axios.post(`${config.routes.user.register}`, {
         name: name,
         email: email,
         password: password,
