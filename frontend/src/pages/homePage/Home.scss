@@ -1,5 +1,13 @@
+.header-section, .popular_category {
+    font-family: "Courgette", cursive;
+    font-family: "Dancing Script", cursive;
+    font-family: "Satisfy", cursive;
+    font-size: 18px;
+
+}
 .text_content {
     margin-top: 6rem;
+
   }
   
   .logo_text {
@@ -65,17 +73,22 @@
   .popular_category button img {
     width: 25px;
     height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
   }
   
   .popular_category button.active {
     background-color: #135e5a;
   }
   
-.search-bar {
-    margin-left: 60px;
-    width: 150px;
+  .search-bar input {
+    border: #b54f30 solid 1px !important;
+    width: 200px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
-  
-  .search-bar Input {
-    width: 100%;
+ .search-bar input:focus {
+    outline: none !important;
+    box-shadow: 0px 0px 5px #b54f30;
+
   }
