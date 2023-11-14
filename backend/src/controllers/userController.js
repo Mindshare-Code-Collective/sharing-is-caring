@@ -2,6 +2,7 @@ import User from "../models/userModel.js";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import Product from "../models/productModel.js";
+import Conversation from "../models/messageModel.js";
 
 const createUser = async (req, res) => {
   try {
