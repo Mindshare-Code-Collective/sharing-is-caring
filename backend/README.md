@@ -24,7 +24,7 @@ This project is an online exchange server developed with Express and Mongoose. U
 | --------- | ------------------| --------------- | ------------------------- |------------------------------- |
 | POST      | `/users/register` | (empty)         | { name, password, email } | Register new user              |
 | POST      | `/users/login`    | (empty)         | { name, password }        | Login registered user          |
-| GET       | `/users/logout`   | Auth: JWT       |                           | Logout user                    |
+| POST      | `/users/logout`   | Auth: JWT       |                           | Logout user                    |
 | GET       | `/users/:id`      | Auth: JWT       |                           | Returns data of logged in user |
 
 
@@ -38,6 +38,17 @@ This project is an online exchange server developed with Express and Mongoose. U
 | GET       | `/products/:id`      | (empty)      | Returns a product by id    |
 | DELETE    | `/products/:id`      | (empty)      | Delete a product by id     |
 | PATCH     | `/products/:id`      | JSON         | Update a product by id     |
+
+
+### Message routes
+
+| HTTP verb | URL                        | Request body                                  | Action                     |
+| --------- | -------------------------- | --------------------------------------------- |--------------------------- |
+| POST      | `/messages/send`           | { product, owner, customer, messages[{        | Adds a new conversation    |
+|           |                            |                  senderId, messageContent}] } |                            |
+| GET       | `/messages/:conversationId`| (empty)                                       | Returns a message by id    |
+| PATCH     | `/messages/addto`          | { conversationId, senderId, messageContent }  | Returns a message by id    |
+
 
 <hr>
 
@@ -91,3 +102,47 @@ This project is an online exchange server developed with Express and Mongoose. U
     image_id : { type: String, }
 }
 ```
+
+### Message Model
+
+```js
+{   
+    messagesSchema
+    
+   senderId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    messageContent: {
+      type: String,
+      required: true,
+      maxlength: 1000
+    }
+}
+```
+
+```js
+{   
+    conversationSchema
+
+     product: {
+      type: Schema.Types.ObjectId,
+      ref: "Product",
+      required: true
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    customer: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    messages: [messageSchema]
+}
+```
+
+
