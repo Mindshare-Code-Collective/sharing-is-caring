@@ -4,6 +4,7 @@ import { Container, Row, Col, Input } from "reactstrap";
 // import { HiArrowNarrowRight } from 'react-icons/hi';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { Link } from "react-router-dom";
 import Garten from "../../assets/Garten.jpg";
 import Kleidung from "../../assets/Kleidung.jpg";
 import Alle from "../../assets/Alle.png";
@@ -16,11 +17,13 @@ import Book from "../../assets/Book.jpg";
 import ProductCard from "../dashboard/ProductCard";
 import { AppContext } from "../../AppContext";
 
+
 const Home = () => {
-  const { products } = useContext(AppContext);
+  const { products} = useContext(AppContext);
   const [selectedCategory, setSelectedCategory] = useState("Alle");
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+
 
   const categoryNames = {
     All: "Alle",
@@ -163,10 +166,14 @@ const Home = () => {
               </div>
             </Col>
           </Row>
-          <Row>
+          <Row className="product-card-div ">
             {filteredProducts &&
               filteredProducts.map((product, index) => (
-                <ProductCard key={index} product={product} />
+                <Col lg="3">
+                <Link key={index} to={`/products/${product._id}`} className="text-decoration-none">
+                <ProductCard key={index} product={product}/>
+                </Link>
+                </Col>
               ))}
           </Row>
         </Container>

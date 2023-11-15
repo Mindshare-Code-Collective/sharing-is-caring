@@ -15,6 +15,11 @@ const config = {
       getAProduct:  backendUrl + "/products/:id",
       updateProduct:  backendUrl + "/products/:id",
       deleteProduct:  backendUrl + "/products/:id",
+    },
+    message:{
+      createNewConversation : backendUrl + "messages/send",
+      getCoversationById : backendUrl + "messages/:id",
+      addMessageToConversation : backendUrl + "messages/addto",
     }
   },
   database: {

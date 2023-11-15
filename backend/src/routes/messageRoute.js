@@ -8,7 +8,7 @@ const router= express.Router();
 router.
      route('/send').post(messageController.createConversation);
 router.
-     route('/:conversationId').get(messageController.getConversationById);
+     route('/:id').get(messageController.getConversationById);
 router.
      route('/addto').patch(messageController. addMessageToConversation);
 

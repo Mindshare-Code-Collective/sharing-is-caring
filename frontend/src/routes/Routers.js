@@ -5,16 +5,22 @@ import Home from '../pages/homePage/Home';
 import Login from '../pages/login/login.jsx';
 import Register from '../pages/register/register.jsx'
 import Dashboard from '../pages/dashboard/Dashboard.jsx'
+import ProductDetail from '../pages/Product/ProductDetail.jsx';
+import MessageDetail from '../pages/Message/MessageDetail.jsx';
+
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
 
+
 const Routers = () => {
-  const {userInfo} = useContext(AppContext);
+  const {products, userInfo, userObject} = useContext(AppContext);
   return (
     <Routes>
         <Route path='/' element={<Navigate to='/home'/>} /> 
         <Route path='/home' element={ <Home/> } />
+        <Route path="/products/:id" element={<ProductDetail products={products} userInfo={userInfo}/>} />
+        <Route path="/messages/:id" element={<MessageDetail userInfo={userInfo} userObject={userObject}/>} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={userInfo ? <Navigate to="/dashboard"/> : <Login />} />
         <Route path='/register' element={<Register />} />

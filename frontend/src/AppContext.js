@@ -56,6 +56,12 @@ export const AppProvider = ({ children }) => {
     } else {
       console.log("You have to log in first to see your dashboard");
     }
+    const intervalId = setInterval(fetchUserObject, 10 * 1000);
+
+    return () => {
+      // Clear the interval on component unmount
+      clearInterval(intervalId);
+    };
   }, [userInfo]);
 
   const addProductToState = (newProduct) => {

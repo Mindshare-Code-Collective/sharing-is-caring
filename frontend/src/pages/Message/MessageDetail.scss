@@ -1,0 +1,24 @@
+.chat-container {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .message {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    max-width: 70%; 
+  }
+  
+  .from-user {
+    background-color: #099e9d; 
+    color: #fff;
+    text-align:right;
+
+  }
+  
+  .from-other-user {
+    background-color: #ddd; 
+
+  }

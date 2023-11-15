@@ -15,21 +15,30 @@ export default function Dashboard(props) {
   // const handleProductSubmit = (newProduct) => {
   //   setUserProducts([...userProducts, newProduct]);
   // };
+
+  console.log(userObject);
  
   return (
     <div className="sec1">
       <DashboardUserHeader userInfo={userInfo}/>
       <div className="text-center fs-2 mt-5"><h3>MEINE PRODUCTE</h3></div>
 
-      <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5  container" >
+      <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5" >
       {
     userInfo && userObject && userObject.products.map((product, index) => (
       <ProductCard key={index} product={product} />
     ))
   }
       </div>
-      <Messages/>
+      <div className="text-center fs-2 mt-5"><h3>MEINE NACHRICHTEN</h3></div>
+      <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5 " >
 
+      {
+    userInfo && userObject && userObject.conversations.map((conversation, index) => (
+      <Messages key={index} conversation={conversation} userInfo={userInfo}/>
+      ))
+    }
+    </div>
     </div>
     );
   };

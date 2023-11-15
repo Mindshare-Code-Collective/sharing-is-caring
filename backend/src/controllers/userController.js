@@ -2,6 +2,7 @@ import User from "../models/userModel.js";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import Product from "../models/productModel.js";
+import Conversation from "../models/messageModel.js";
 
 const createUser = async (req, res) => {
   try {
@@ -81,7 +82,7 @@ const getDashboardData = async (req, res) => {
 
     const conversations = await Conversation.find({
       $or: [{ owner: req.params.id }, { customer: req.params.id }],
-    }).populate(['owner', 'customer']);
+    }).populate(['owner', 'customer', 'product']);
 
     res.status(200).json({
       products,
