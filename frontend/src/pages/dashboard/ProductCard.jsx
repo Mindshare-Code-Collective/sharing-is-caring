@@ -17,17 +17,21 @@ export default function ProductCard(props) {
       <div className="container_with d-flex flex-column justify-content-center align-items-center">
         <div className="row">
           <div className="col-md-12">
-            <div className="product-card">
-              <div className="product-image">
-                <img src={product.picture ? product.picture : image01} alt="Aa" width="150"/>
-              </div>
+
+                {
+                  product && product.picture && 
+                  <div className="product-card">
+                  <div className="product-image">
+                  <img src={product.picture ? product.picture : image01} alt="Aa" width="150"/>
+                  </div>
               <div className="product-details">
                 <h2 className="product-title">{product.name}</h2>
                 <h3 className="product-category">{product.category}</h3>
                 <p className="product-condition">{product.condition}</p>
               </div>
             </div>
-          </div>
+                }
+         </div>
         </div>
       </div>
     </div>
