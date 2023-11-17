@@ -16,7 +16,7 @@ export default function Dashboard(props) {
   //   setUserProducts([...userProducts, newProduct]);
   // };
 
-  console.log(userObject);
+  //console.log(userObject);
  
   return (
     <div className="sec1">

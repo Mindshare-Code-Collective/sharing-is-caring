@@ -60,12 +60,12 @@ const MessageDetail = (props) => {
 
   return (
     <div className="chat-container">
-      <Row>
+       <Row>
         {
-          conversation && conversation.messages.map((message) => {
+          conversation && conversation.messages.map((message,index) => {
             return message.senderId === userInfo.id ? 
-            <div className=" message from-user">{message.messageContent}</div> :
-            <div className="message from-other-user">{message.messageContent}</div>
+            <div key={index} className="message from-user">{message.messageContent}</div> :
+            <div key={index} className="message from-other-user">{message.messageContent}</div>
           })
         }
       </Row>

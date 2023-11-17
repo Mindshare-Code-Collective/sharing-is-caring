@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { useParams } from "react-router-dom";
-import config from '../../component/config/config';
 import axios from "axios";
 import { Button, Form, Col, Row} from 'react-bootstrap';
 import ProductCard from '../dashboard/ProductCard';
@@ -13,7 +12,6 @@ const ProductDetails = (props) => {
     const createNewConversationUrl = "http://localhost:3333/messages/send";
 
     const {products, userInfo} = props;
-    console.log(config.routes.message.createNewConversation);
     const navigate = useNavigate();
 
     const { id } = useParams();
