@@ -17,10 +17,12 @@ export default function Dashboard(props) {
       <div className="text-center fs-2 mt-5"><h3>MEINE PRODUCTE</h3></div>
 
       <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5" >
-        {
-          userInfo && userObject && userObject.products.map((product, index) => (
-           <ProductCard key={index} product={product} />))
-        }
+
+      {
+    userInfo && userObject && userObject.products.map((product, index) => (
+      <ProductCard key={index} product={product} editable/>
+    ))
+  }
       </div>
       <div className="text-center fs-2 mt-5"><h3>MEINE NACHRICHTEN</h3></div>
       <div className="d-flex justify-content-center align-items-center gap-3 m-5" >

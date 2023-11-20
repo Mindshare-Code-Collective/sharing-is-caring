@@ -86,6 +86,7 @@ export const AppProvider = ({ children }) => {
         setUserObject,
         userObject,
         addProductToState,
+        fetchProducts
       }}
     >
       {children}
