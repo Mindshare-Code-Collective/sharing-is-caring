@@ -117,6 +117,7 @@ const ProductDetails = (props) => {
         </Form>
             </Col>
         </Row>
+        
  
     </div>
   );
