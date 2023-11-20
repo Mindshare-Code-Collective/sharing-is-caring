@@ -21,6 +21,7 @@ export default function ProductCard({ product, editable = false }) {
     try {
       await axios.delete(config.routes.product.deleteProduct + product._id);
       fetchProducts();
+      window.location.reload();
     } catch (error) {
       console.error("Error deleting products:", error);
     }
@@ -52,6 +53,7 @@ export default function ProductCard({ product, editable = false }) {
               } 
          </div>
         </div>
+
       </div>
     </div>
 
