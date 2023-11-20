@@ -1,0 +1,33 @@
+.message-div:hover{
+    transform:scale(1.1);
+    background-color: #b55f45;
+    background-image: linear-gradient(62deg, #eddcd6 0%, #f9f2f0 100%);
+    border-radius: 70% !important;
+}
+
+.message-div {
+    padding:15px;
+}
+
+.review-text {
+    color:#b54f30;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.slider-content img{
+    width:80px;
+    height:80px;
+    border-radius: 50%;
+}
+
+.message-content {
+    margin:15px 0px;
+    color: black;
+}
+
+.message-user{
+    color: #099e9d;
+    font-style: italic;
+}
+

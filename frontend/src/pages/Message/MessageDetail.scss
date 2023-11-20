@@ -1,24 +1,37 @@
 .chat-container {
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  
-  .message {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    word-wrap: break-word;
-    max-width: 70%; 
-  }
-  
-  .from-user {
-    background-color: #099e9d; 
-    color: #fff;
-    text-align:right;
+  max-width: 700px;
+  margin: 20px auto;
+}
 
-  }
-  
-  .from-other-user {
-    background-color: #ddd; 
+.messages-container {
+height:510px;
+overflow-x:hidden;
+overflow-y: auto;
+padding-right:20px;
+}
 
-  }
+.message {
+  margin: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  max-width: 70%; 
+}
+
+.from-user {
+  background-color: #099e9d; 
+  color: #fff;
+  text-align:right;
+}
+
+.from-other-user {
+  background-color: #ddd; 
+
+}
+.message_button{
+  background: #b54f30 !important;
+}
+.message_button:hover{
+  border-radius: 20px;
+  background: #b54f30 !important;
+}
