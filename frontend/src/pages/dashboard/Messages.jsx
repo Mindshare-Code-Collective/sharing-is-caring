@@ -17,9 +17,9 @@ export default function Messages(props) {
         <div className="">
           <div className=" ">
              <div className='message_image'>
-                <img src={conversation.product.picture ? conversation.product.picture : image01} alt="Aa" width="100"/>
+                <img src={conversation.product?.picture ? conversation.product.picture : image01} alt="Aa" width="100"/>
               </div>
-              <h1>{conversation.product.name}</h1> 
+              <h1>{conversation.product?.name}</h1> 
               <p>{conversation.messages[0].messageContent}</p>
               <Link to={`/messages/${conversation._id}`}> 
               <button>Details</button>
