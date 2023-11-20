@@ -7,7 +7,7 @@ import './Messages.scss';
 
 export default function Messages(props) {
   const {conversation} = props;
- 
+
    
     return (
    <>
@@ -20,7 +20,7 @@ export default function Messages(props) {
                 <img src={conversation.product?.picture ? conversation.product.picture : image01} alt="Aa" width="100"/>
               </div>
               <h1>{conversation.product?.name}</h1> 
-              <p>{conversation.messages[0].messageContent}</p>
+              {/* <p>{conversation.messages[0].messageContent}</p> */}
               <Link to={`/messages/${conversation._id}`}> 
               <button>Details</button>
               </Link>
