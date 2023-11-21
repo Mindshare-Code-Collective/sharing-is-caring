@@ -19,7 +19,7 @@ const Routers = () => {
     <Routes>
         <Route path='/' element={<Navigate to='/home'/>} /> 
         <Route path='/home' element={ <Home/> } />
-        <Route path="/products/:id" element={userInfo ? <ProductDetail products={products} userInfo={userInfo}/> : <Home/>} />
+        <Route path="/products/:id" element={ <ProductDetail products={products} userInfo={userInfo}/> } />
         <Route path="/messages/:id" element={userInfo ? <MessageDetail userInfo={userInfo} userObject={userObject}/> : <Home/>} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={userInfo ? <Navigate to="/dashboard"/> : <Login />} />
