@@ -47,6 +47,7 @@ const MessageDetail = (props) => {
   };
 
   return (
+    userObject &&
     <div className="chat-container">
       <div className="messages-container">
         <Row>
