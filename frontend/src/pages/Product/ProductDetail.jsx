@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { Button, Form, Col, Row} from 'react-bootstrap';
 // import ProductCard from '../dashboard/ProductCard';
@@ -99,6 +99,9 @@ const ProductDetails = (props) => {
           </Col>
         </Row>
       </Col>
+      {
+        userInfo ?
+     
             <Col lg="8">
             <Form className="main_form" method="POST">
             <Form.Group className="mb-4">
@@ -115,7 +118,21 @@ const ProductDetails = (props) => {
                         Abschicken!
             </Button>
         </Form>
+
+            </Col> :
+            <Col lg="8">
+              <p>Wenn Sie nicht eingelogttt</p>
+ 
+            <Link to="/login">
+            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}} variant="primary">
+                        Zum Anmelden
+            </Button>
+            </Link>
+   
             </Col>
+
+             }
+    
         </Row>
         
  
