@@ -40,7 +40,7 @@ export default function ProductCard({ product, editable = false }) {
                   <img src={product.picture ? product.picture : image01} alt="Aa" width="150"/>
                   </div>
               <div className="product-details">
-                <h2 className="product-title">{product.name}</h2>
+              <h2 className="product-title" style={{fontSize: product.name.length > 9 ? `${(9 / product.name.length) * 1.5}rem` : "1.5rem"}}>{product.name}</h2>
                 <h3 className="product-category">{product.category}</h3>
                 <p className="product-condition">{product.condition}</p>
                 { editable && userInfo.id === product.user &&
