@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import logo from './assets/logo.png';
+import logo from '../../assets/logo.png'
 import './Header.scss';
 import axios from 'axios';
 import { useContext } from "react";

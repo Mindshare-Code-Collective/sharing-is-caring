@@ -1,17 +1,11 @@
 .footer {
-    width: 100%;
-    //position: fixed;
-    bottom: 0;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    background: rgb(243, 180, 180);
-    a img {
-        margin: 5px;
-    }
-    ul {
-    //position: relative;
-    //right: 1em;
-        line-height: 1.2em;
-    }
+   background-color: #099e9d;
+   color: aliceblue;
+}
+.icons{
+    font-size: 28px;
+}
+.icons div a {
+    margin-left: 20px;
+    color: aliceblue;
 }
