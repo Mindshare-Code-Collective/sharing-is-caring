@@ -1,0 +1,38 @@
+.productDetails{
+    font-family: "Courgette", cursive;
+    font-family: "Dancing Script", cursive;
+    font-family: "Satisfy", cursive;
+    font-size: 19px;
+
+}
+.details {
+    border: solid white 1px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 30px;
+    border-radius: 18px;
+}
+.product-img img {
+    width: 480px;
+    height: 450px;
+    border-radius: 18px;
+}
+.flex-container {
+    display: flex;
+    flex-direction: column;
+ 
+}
+
+.flex-container div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+h5 {
+    margin-right: 10px;
+}
+
+.description-row {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
