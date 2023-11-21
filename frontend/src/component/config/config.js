@@ -14,7 +14,9 @@ const config = {
       createProduct : backendUrl + "/products",
       getAProduct:  backendUrl + "/products/:id",
       updateProduct:  backendUrl + "/products/:id",
-      deleteProduct:  backendUrl + "/products/",
+      deleteProduct:  backendUrl + "/products/delete/",
+      reserveProduct:  backendUrl + "/products/reserve/",
+      onlineProduct:  backendUrl + "/products/online/",
     },
     message:{
       createNewConversation : backendUrl + "messages/send",

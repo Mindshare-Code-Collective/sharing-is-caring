@@ -1,5 +1,6 @@
 .product-card {
     display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     border: 1px solid #e1e1e1;
     border-radius: 8px;
@@ -13,9 +14,20 @@
     width: 300px;
     margin-top: 50px;
   }
-
+  .product-image-details{
+    display:flex;
+    margin-right: 10px;
+  }
   .product-image {
     margin-right: 10px;
+  }
+
+  .product-buttons {
+    display:flex;
+    justify-content: flex-end;
+    margin:10px;
+    gap:10px;
+
   }
   
   .product-image img {
@@ -40,6 +52,12 @@
     color: #666;
     margin: 5px 0;
   }
+
+  .product-status {
+    font-size: 1.2rem;
+    color: #792929;
+    margin: 5px 0;
+  }
   
   .product-condition {
     font-size: 1rem;
@@ -51,5 +69,14 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .product-btn-btn {
+    border-radius: 20px;
+  }
+
+  .product-btn-btn:hover {
+    background-color: #792929;
+    color:white;
   }
   
