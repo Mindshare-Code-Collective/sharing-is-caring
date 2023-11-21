@@ -16,6 +16,7 @@ const createProduct = async (req, res) => {
       newProduct.description = req.body.description;
       newProduct.picture = req.body.picture;
       newProduct.user = user;
+      newProduct.status = "online",
       
       await newProduct.save();
       res.status(200).json({ success: true, data: newProduct});  
@@ -61,8 +62,44 @@ const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
 
-    await Product.findOneAndRemove({ _id: req.params.id });
+    product.status = "deleted",
+      
+    await product.save();
     res.status(200).json({ success: true, data: product, message: "Product deleted."});
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error,
+    });
+  }
+};
+
+const reserveProduct = async (req, res) => {
+
+  try {
+    const product = await Product.findById(req.params.id);
+
+    product.status = "reserved",
+      
+    await product.save();
+    res.status(200).json({ success: true, data: product, message: "Product reserved."});
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error,
+    });
+  }
+};
+
+const onlineProduct = async (req, res) => {
+
+  try {
+    const product = await Product.findById(req.params.id);
+
+    product.status = "online",
+      
+    await product.save();
+    res.status(200).json({ success: true, data: product, message: "Product is online."});
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -94,5 +131,5 @@ const updateProduct = async (req, res) => {
   }
 };
 
-export { createProduct, getAllProducts, getAProduct, deleteProduct, updateProduct };
+export { createProduct, getAllProducts, getAProduct, deleteProduct, reserveProduct, onlineProduct, updateProduct };
 
