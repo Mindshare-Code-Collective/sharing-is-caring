@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cd frontend && npm run start && cd ../backend && npm start",
+    "start": "cd frontend && npm start && cd ../backend && npm start",
     "start backend": "cd backend && npm start",
     "build": "cd frontend && npm install && npm run build && cd ../backend && npm install && npm start"
   },
   "description": "This project was bootstrapped with MERN Stack.",
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  },
   "author": "",
   "license": "ISC"
 }
