@@ -1,0 +1,14 @@
+{
+  "name": "sharing-is-caring",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "cd frontend && npm start",
+    "start backend": "cd backend && npm start",
+    "build": "cd frontend && npm run build && cd ../backend && npm install && npm start"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "./frontend/public/index.html",
+  "author": "",
+  "license": "ISC"
+}
