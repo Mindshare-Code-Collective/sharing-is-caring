@@ -8,7 +8,6 @@
     "build": "cd frontend && npm install && npm run build && cd ../backend && npm install && npm start"
   },
   "description": "This project was bootstrapped with MERN Stack.",
-  "main": "./frontend/public/index.html",
   "author": "",
   "license": "ISC"
 }
