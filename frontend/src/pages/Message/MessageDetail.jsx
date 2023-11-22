@@ -13,7 +13,7 @@ const MessageDetail = (props) => {
 
   const { id } = useParams();
   const addMessageToConversationUrl = `http://localhost:3333/messages/addto`;
-  const conversation = userObject.conversations.find((conv) => conv._id === id);
+  const conversation = userObject?.conversations.find((conv) => conv._id === id);
 
   const handleChange = (e) => {
     const { value } = e.target;

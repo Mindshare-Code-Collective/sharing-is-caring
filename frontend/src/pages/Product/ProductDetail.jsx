@@ -85,7 +85,6 @@ const ProductDetails = (props) => {
 
 
   return (
-    userObject && products &&
     <div className="container productDetails ">
     <Row>
       <Col>
