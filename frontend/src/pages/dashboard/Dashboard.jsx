@@ -19,9 +19,14 @@ export default function Dashboard(props) {
       <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5" >
 
       {
-    userInfo && userObject && userObject.products.map((product, index) => (
-      <ProductCard key={index} product={product} editable/>
-    ))
+    userInfo && userObject && userObject.products.map((product, index) => 
+      {
+        return (product.status !== "deleted" ?
+        <ProductCard key={index} product={product} editable/>
+        : null)
+
+      }
+    )
   }
       </div>
       <div className="text-center fs-2 mt-5"><h3>MEINE NACHRICHTEN</h3></div>

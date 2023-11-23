@@ -20,7 +20,7 @@ export const AppProvider = ({ children }) => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(config.routes.product.getAllProducts);
-      setProducts(response.data.data);
+      setProducts(response.data.data.filter(product => product.status !== "deleted"));
       //console.log(JSON.stringify(response.data));
     } catch (error) {
       console.error('Error fetching products:', error);

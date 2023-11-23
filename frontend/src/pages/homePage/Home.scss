@@ -25,6 +25,7 @@
   border-radius: 20px;
 }
 
+
 .category_btn:hover .category_icon {
   transform: rotate(90deg);
   transition: transform 0.3s ease;
@@ -89,3 +90,123 @@
   outline: none !important;
   box-shadow: 0px 0px 5px #b54f30;
 }
+
+  }
+  
+  .logo_text {
+    color: #b54f30;
+  }
+  
+  .category_btn {
+    background: #b54f30;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .category_btn:hover {
+    background: #95210b;
+    border-radius: 20px;
+  }
+  
+  .category_btn:hover .category_icon {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .category_icon {
+    transition: transform 0.3s ease;
+    padding-left: 9px;
+  }
+  
+  .legend {
+    background-color: #cea69a !important;
+    color: black !important;
+  }
+  
+  .all_category {
+    background: #fff !important;
+    border-radius: 15px;
+    width: 5rem;
+    color: #b54f30 !important;
+  }
+  
+  .popular_category {
+    background: #099e9d;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0px;
+    border-radius: 8px;
+    height: 60px;
+  }
+  
+  .popular_category button {
+    border: none;
+    outline: none;
+    padding: 7px 20px;
+    background: transparent;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
+  }
+  
+  .popular_category button:hover {
+    background-color: #135e5a;
+  }
+  
+  .popular_category button img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .popular_category button.active {
+    background-color: #135e5a;
+  }
+
+  .search-bar input {
+    border: #b54f30 solid 1px !important;
+    width: 200px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+ .search-bar input:focus {
+    outline: none !important;
+    box-shadow: 0px 0px 5px #b54f30;
+
+  }
+
+  .category-section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1000px) {
+    .product-card-div {
+      position: relative;
+      width: 100%;
+      left: 7.8em;
+    }
+  }
+
+@media (min-width: 100px) and (max-width: 799px) {
+  .product-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 980px) {
+    .product-container {
+      margin-left: 17em;
+      display: flex;
+      gap: 4;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+

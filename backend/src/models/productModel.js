@@ -78,6 +78,10 @@ const productSchema = new Schema({
 
     image_id : {
         type: String,
+    },
+    status : {
+        type:String,
+        required:true,
     }
 });
 

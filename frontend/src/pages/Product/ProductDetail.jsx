@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { Button, Form, Col, Row} from 'react-bootstrap';
-// import ProductCard from '../dashboard/ProductCard';
 import { useNavigate } from "react-router-dom";
 import image01 from "../../assets/Book-3.jpg";
 import "./ProductDetails.scss";
@@ -11,8 +10,9 @@ import "./ProductDetails.scss";
 const ProductDetails = (props) => {
     const [message, setMessage] = useState();
     const createNewConversationUrl = "http://localhost:3333/messages/send";
+    const addMessageToConversationUrl = "http://localhost:3333/messages/addto";
 
-    const {products, userInfo} = props;
+    const {products, userInfo, userObject} = props;
     const navigate = useNavigate();
 
     const { id } = useParams();
@@ -32,22 +32,49 @@ const ProductDetails = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
+    // let conversation_Id;
 
-        createNewConversationUrl,
-        {   product:product._id,
-            owner:product.user,
-            customer:userInfo.id,
-            messages:[message],
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+    const conversation = userObject.conversations.filter((conv) => 
+    conv.product._id === id &&
+    conv.customer._id === userInfo.id);
+
+
+    try {
+
+      if (conversation.length > 0) {
+        const responsePatch = await axios.patch(
+          addMessageToConversationUrl,
+          {
+            conversationId: conversation[0]._id,
+            senderId: userInfo.id,
+            messageContent: message.messageContent,
           },
-        }
-      );
-      console.log(response);
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(responsePatch);
+
+
+      } else {
+         const responsePost = await axios.post(
+
+          createNewConversationUrl,
+          {   product:id,
+              owner:product.user,
+              customer:userInfo.id,
+              messages:[message],
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(responsePost);
+      };
 
     } catch (error) {
       console.error("Error sending data:", error);
@@ -74,7 +101,7 @@ const ProductDetails = (props) => {
             <h1 style={{color:'#b54f30'}}>{product.name}</h1>
             <hr />
 
-            <div class="flex-container">
+            <div className="flex-container">
               <div>
                 <h5>ART:</h5>
                 <p>{product.category}</p>
@@ -91,7 +118,7 @@ const ProductDetails = (props) => {
                 <h5>ZUSTELLUNG:</h5>
                 <p>{product.shipment}</p>
               </div>
-              <div class="description-row">
+              <div className="description-row">
                 <h5>BESCHREIBUNG:</h5>
                 <p>{product.description}</p>
               </div>
@@ -100,7 +127,7 @@ const ProductDetails = (props) => {
         </Row>
       </Col>
       {
-        userInfo ?
+        userInfo && userInfo.id !== product.user &&
      
             <Col lg="8">
             <Form className="main_form" method="POST">
@@ -114,17 +141,18 @@ const ProductDetails = (props) => {
                     placeholder="Deine Nachricht hier eingeben!" 
                         />
             </Form.Group>
-            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}} variant="primary" onClick={handleSubmit}>
+            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}}  onClick={handleSubmit}>
                         Abschicken!
             </Button>
         </Form>
 
-            </Col> :
+            </Col> }
+            { !userInfo &&
             <Col lg="8">
               <p>Wenn Sie nicht eingelogttt</p>
  
             <Link to="/login">
-            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}} variant="primary">
+            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}}>
                         Zum Anmelden
             </Button>
             </Link>

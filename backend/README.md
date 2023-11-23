@@ -36,7 +36,9 @@ This project is an online exchange server developed with Express and Mongoose. U
 | POST      | `/products/`         | JSON         | Adds a new product         |
 | GET       | `/products/`         | (empty)      | Returns all products       |
 | GET       | `/products/:id`      | (empty)      | Returns a product by id    |
-| DELETE    | `/products/:id`      | (empty)      | Delete a product by id     |
+| PATCH     | `/products/:id`      | (empty)      | Delete a product by id     |
+| PATCH     | `/products/:id`      | (empty)      | Reserve a product by id    |
+| PATCH     | `/products/:id`      | (empty)      | Online a product by id     |
 | PATCH     | `/products/:id`      | JSON         | Update a product by id     |
 
 
@@ -100,6 +102,7 @@ This project is an online exchange server developed with Express and Mongoose. U
     user: { type: Schema.Types.ObjectId, ref: 'User', },
     url: { type: String, },
     image_id : { type: String, }
+    status : { type:String, required:true, }
 }
 ```
 
