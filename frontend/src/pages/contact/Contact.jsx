@@ -1,9 +1,11 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import "./Contact.scss";
-import frau from "../../assets/frau.webp";
 import port from "../../assets/mann.webp";
-
+import Miad from "../../assets/miad.jpg";
+import Sabriye from "../../assets/sabriye.jpg";
+import Bennej from "../../assets/bennej.jpg";
+import Doreen from "../../assets/doreen.jpg";
 import { VscMail } from "react-icons/vsc";
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@400;500&family=Satisfy&display=swap');
@@ -20,42 +22,52 @@ const Contact = () => {
         </section>
         <br />
         <br />
-        <Row  sm='12' className="col-lg-12 col-md-12 ">
-          <h3>UNSERES TEAM</h3>
+        <Row  sm='12' className="col-lg-12 col-md-12  ">
+          <h3>UNSERE TEAM</h3>
           <br />
           <br />
           <br />
-          <Col className="img1 mb-5 ">
-            <img className="img" src={frau} alt="" srcset="" />
-            <h2 className="img-text">MIAD</h2>
+          
+          <Col className="img1 mb-5 d-flex justify-content-center m-1">
+            <img className="img" src={Miad} alt="" srcset="" />
+            <h2 className="img-text">MIAD </h2>
+            <p className="img-tex">Frontend Leiter</p>
           </Col>
-          <Col className="img1 mb-5">
-            <img className="img" src={port} alt="" srcset="" />
+          <Col className="img1 mb-5 d-flex justify-content-center m-">
+            <img className="img" src={Sabriye} alt="" srcset="" />
+           
+            <h2 className="img-text">SABRIYE</h2>
+            <p className="img-tex">Backend Leiter</p>
+            
+          </Col>
+          <Col className="img1  mb-5 d-flex justify-content-center m-2">
+            <img className="img" src={Doreen} alt="" srcset="" />
+            <h2 className="img-text"> DOREEN </h2>
+            <p className="img-tex">Projeckt Leiter</p>
+          </Col>  
+          <Col  className="img1 mb-5 d-flex justify-content-center m-2">
+            <img className="img" src={Bennej} alt="" srcset="" />
             <h2 className="img-text">BENNEJ</h2>
+            <p className="img-tex">GitHub Leiter</p>
           </Col>
-          <Col  className="img1 mb-5">
+
+          <Col className="img1 mb-5 d-flex justify-content-center m-2">
             <img className="img" src={port} alt="" srcset="" />
-            <h2 className="img-text">DIRK</h2>
-          </Col>
-          <Col className="img1  mb-5">
-            <img className="img" src={frau} alt="" srcset="" />
-            <h2 className="img-text"> SABRIYE </h2>
-          </Col>
-          <Col className="img1 mb-5 ">
-            <img className="img" src={frau} alt="" srcset="" />
-            <h2 className="img-text img-text2" > DOREEN </h2>
-          </Col>
+            <h2 className="img-text" > DIRK</h2>
+            <p className="img-tex">Project Leiter</p>
+          </Col>  
         </Row>
         <br />
         <br />
         <br />
-        <br />
+        <br /> 
+        
         <Row className=" sec1">
           <Col lg="5" className="mb-5">
             <h3 className="py-4 ">KONTAKTIEREN SIE UNS</h3>
 
             <h5>Email:</h5>
-            <p>sharing-is-caring@development.com</p>
+            <p>tauchbörse@development.com</p>
             <br />
             <h5>Phone:</h5>
             <p>+49 1234567890</p>
@@ -80,7 +92,7 @@ const Contact = () => {
                     className="form-control "
                     id="email"
                     name="email"
-                    placeholder="E-Mail"
+                    placeholder="Email"
                     type="email"
                     required
                   />
@@ -92,7 +104,7 @@ const Contact = () => {
                 className="form-control"
                 id="message"
                 name="message"
-                placeholder="Ihre Nachricht"
+                placeholder="Message"
                 rows="5"
                 required
               ></textarea>
@@ -100,7 +112,7 @@ const Contact = () => {
               <Row>
                 <Col>
                   <button className="btn-btn" type="submit">
-                    Abschicken
+                    Send
                   </button>
                 </Col>
               </Row>
@@ -115,17 +127,17 @@ const Contact = () => {
             <Col lg="6" className="mb-5">
               <h5>Newsletter abonnieren</h5>
               <p>
-                Unser Newsletter fasst für Sie das Wichtigste und die neusten Änderungen auf einen Blick
-                zusammen. Verpassen Sie nichts! Jetzt eintragen und anmelden!
+                Newsletter fasst für Sie das Wichtigste vom Tag auf einen Blick
+                zusammen. verpassen Sie nichts. Jetzt eintragen und anmelden!
               </p>
             </Col>
             <Col lg="6" className="mb-5">
-              <br/>
+              <p>Regelmäßig Tipps erhalten</p>
               <form>
                 <input
                   className=" mr-sm-2 "
                   type="email"
-                  placeholder="Deine E-Mail Adresse"
+                  placeholder="Your Email"
                   style={{
                     height: "35px",
                     borderRadius: "5px",
