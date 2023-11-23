@@ -80,15 +80,49 @@
   .popular_category button.active {
     background-color: #135e5a;
   }
-  
+
   .search-bar input {
     border: #b54f30 solid 1px !important;
     width: 200px;
     margin-top: 30px;
     margin-bottom: 20px;
   }
+
  .search-bar input:focus {
     outline: none !important;
     box-shadow: 0px 0px 5px #b54f30;
 
   }
+
+  .category-section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1000px) {
+    .product-card-div {
+      position: relative;
+      width: 100%;
+      left: 7.8em;
+    }
+  }
+
+@media (min-width: 100px) and (max-width: 799px) {
+  .product-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 980px) {
+    .product-container {
+      margin-left: 17em;
+      display: flex;
+      gap: 4;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
