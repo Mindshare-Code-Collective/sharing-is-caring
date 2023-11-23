@@ -166,7 +166,8 @@ const Home = () => {
               </div>
             </Col>
           </Row>
-          <Row className="product-card-div ">
+          <div className= "product-container">
+          <Row className="product-card-div">
             {filteredProducts &&
               filteredProducts.map((product, index) => (
                 <Col lg="3">
@@ -176,6 +177,7 @@ const Home = () => {
                 </Col>
               ))}
           </Row>
+          </div>
         </Container>
       </section>
     </>
