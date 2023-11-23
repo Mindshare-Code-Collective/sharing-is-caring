@@ -6,6 +6,21 @@
     text-align: center;
 }
 
+.login-container {
+    height:68vh !important;
+    margin-top:50px;
+}
+
+.login-btstrap-con {
+    width:40% !important;
+}
+  
+  @media (min-width: 100px) and (max-width: 980px) {
+    .login-btstrap-con {
+        width:80% !important;
+    }
+    }
+
 // .login-form-container {
 //     text-align: center;
 //     display: flex;

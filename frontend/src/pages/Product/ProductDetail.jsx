@@ -141,18 +141,22 @@ const ProductDetails = (props) => {
                     placeholder="Deine Nachricht hier eingeben!" 
                         />
             </Form.Group>
-            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}}  onClick={handleSubmit}>
+            <Button className='btn-btn' style={{background:'#b54f30'}}  onClick={handleSubmit}>
                         Abschicken!
             </Button>
         </Form>
 
             </Col> }
+            {
+        userInfo && userInfo.id === product.user &&
+     
+            <div className="userInfo-empty-space"></div> }
             { !userInfo &&
             <Col lg="8">
               <p>Nehmen Sie Kontakt auf zum Anbietenden.</p>
  
             <Link to="/login">
-            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}}>
+            <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'70px'}}>
                         Zur Anmeldung
             </Button>
             </Link>
@@ -160,6 +164,7 @@ const ProductDetails = (props) => {
             </Col>
 
              }
+
     
         </Row>
         

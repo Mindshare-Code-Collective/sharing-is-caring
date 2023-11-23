@@ -3,7 +3,9 @@
     background-image: linear-gradient(72deg, #faf1ee 0%, #f9f2f0 100%);
     color: black;
     text-align: center;
+    width:100%;
   }
+
   
   .icons {
     font-size: 20px;
@@ -19,7 +21,10 @@
   
   .icons div a:hover {
     color: #099e9d;
-    font-size: 27px;
+  }
+
+  .icons div:hover {
+    transform:scale(1.2);
   }
   
   

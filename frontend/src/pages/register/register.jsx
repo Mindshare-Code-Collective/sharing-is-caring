@@ -39,7 +39,8 @@ const Register = (props) => {
   };
 
   return (
-    <Container style={{ width: "40%" }}>
+    <div className="register-container">
+    <Container className="register-btstrap-con">
       <Row>
         <div className="sec1">
           <form onSubmit={handleSubmit}>
@@ -129,6 +130,7 @@ const Register = (props) => {
         </div>
       </Row>
     </Container>
+    </div>
   );
 };
 

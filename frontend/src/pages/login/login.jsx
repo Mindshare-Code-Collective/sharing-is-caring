@@ -31,7 +31,8 @@ const Login = (props) => {
   };
 
   return (
-    <Container style={{ width: "40%" }}>
+    <div className="login-container">
+    <Container className="login-btstrap-con">
       <Row>
         <div className="sec1 sec2">
           <form onSubmit={handleSubmit}>
@@ -86,6 +87,7 @@ const Login = (props) => {
         </div>
       </Row>
     </Container>
+    </div>
   );
 };
 

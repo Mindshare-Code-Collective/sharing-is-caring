@@ -173,7 +173,7 @@ const Home = () => {
           <Row>
             <Col lg="12">
               <h2 className="text-center">BELIEBTE KATEGORIEN</h2>
-              <div className="popular_category d-flex align-items-center justify-content-center gap-3">
+              <div className="popular_category">
                 {renderCategoryButtons()}
               </div>
             </Col>

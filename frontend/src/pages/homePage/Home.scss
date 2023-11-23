@@ -47,12 +47,17 @@
 }
 
 .popular_category {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap:wrap;
+  gap:5px;
   background: #099e9d;
   text-align: center;
   margin-top: 30px;
-  padding: 20px 0px;
+  // padding: 10px 0px;
   border-radius: 8px;
-  height: 60px;
+  height: 80px;
 }
 
 .popular_category button {
@@ -135,7 +140,7 @@
     margin-top: 30px;
     padding: 20px 0px;
     border-radius: 8px;
-    height: 60px;
+    height: 80px;
   }
   
   .popular_category button {
@@ -196,6 +201,9 @@
     justify-content: center;
     margin-right: 2rem;
   }
+  .popular_category {
+    height: 160px;
+  }
 }
 
 @media (min-width: 800px) and (max-width: 980px) {
@@ -205,6 +213,9 @@
       gap: 4;
       flex-direction: column;
       align-items: center;
+    }
+    .popular_category {
+      height: 110px;
     }
   }
 

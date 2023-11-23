@@ -43,7 +43,7 @@ const Contact = () => {
           <Col className="img1  mb-5 d-flex justify-content-center m-2">
             <img className="img" src={Doreen} alt="" srcset="" />
             <h2 className="img-text"> DOREEN </h2>
-            <p className="img-tex">Projeckt Leiter</p>
+            <p className="img-tex">Project Leiter</p>
           </Col>  
           <Col  className="img1 mb-5 d-flex justify-content-center m-2">
             <img className="img" src={Bennej} alt="" srcset="" />
