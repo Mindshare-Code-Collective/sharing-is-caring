@@ -33,11 +33,9 @@ export default function DashboardUserHeader(props) {
         <div className="col-md-12">
           <div className="satteb text_align_center">
             <p>
-              Fact that a reader will be distracted by the readable content of a
-              page when looking at its layout. The point of using Lorem Ipsum is
-             
+                Schön, dass du angemeldet bist und unseren Service nutzt!
             </p>
-            <h4>Der Zweck der Verwendung</h4>
+            <h4>Viel Spaß beim Verschenken und Tauschen!</h4>
             <i> <img src={userImage} alt="#" style={{ width: "150px", borderRadius:"50%", height:"150px" }} /></i>
           </div>
         </div>
