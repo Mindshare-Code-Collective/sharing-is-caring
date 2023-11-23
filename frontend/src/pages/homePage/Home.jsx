@@ -128,7 +128,7 @@ const Home = () => {
               <div className="search-bar">
                 <Input
                   type="text"
-                  placeholder="Search by product name"
+                  placeholder="Suche nach Produktnamen"
                   value={searchTerm}
                   onChange={handleSearchChange}
                 />
@@ -146,7 +146,7 @@ const Home = () => {
                 </div>
                 <div>
                   <img src={Book03} alt="Book" />
-                  <p className="legend">Book</p>
+                  <p className="legend">Bücher</p>
                 </div>
                 <div>
                   <img src={Spielzeug} alt="Spielzeug" />
@@ -158,7 +158,7 @@ const Home = () => {
                 </div>
                 <div>
                   <img src={Deco} alt="Decoration" />
-                  <p className="legend">Decoration</p>
+                  <p className="legend">Dekoration</p>
                 </div>
               </Carousel>
             </Col>
