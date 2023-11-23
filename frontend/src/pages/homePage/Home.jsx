@@ -18,6 +18,8 @@ import Decoration from "../../assets/Decoration.jpg";
 import Book from "../../assets/Book.jpg";
 import ProductCard from "../dashboard/ProductCard";
 import { AppContext } from "../../AppContext";
+import LoadingImage from "../../assets/loading.gif";
+
 
 
 const Home = () => {
@@ -177,6 +179,7 @@ const Home = () => {
             </Col>
           </Row>
           <div className= "product-container">
+          {filteredProducts.length > 0 ?
           <Row className="product-card-div">
             {filteredProducts &&
               filteredProducts.map((product, index) => (
@@ -187,7 +190,13 @@ const Home = () => {
                 </Col>
               ))}
           </Row>
+          : 
+          <div className="d-flex justify-content-center">
+          <img src={LoadingImage} width="250" alt="loading"></img>
           </div>
+           }
+          </div>
+         
         </Container>
       </section>
     </>
