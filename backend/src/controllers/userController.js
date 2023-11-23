@@ -32,7 +32,7 @@ const createUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { name, password } = req.body;
-    console.log('req.body', req.body);
+    //console.log('req.body', req.body);
     const user = await User.findOne({ name});
     let same = false;
     if (user) {
