@@ -170,7 +170,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12">
-              <h2 className="text-center">POPULAR CATEGORIES</h2>
+              <h2 className="text-center">BELIEBTE KATEGORIEN</h2>
               <div className="popular_category d-flex align-items-center justify-content-center gap-3">
                 {renderCategoryButtons()}
               </div>
