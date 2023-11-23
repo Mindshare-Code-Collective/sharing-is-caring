@@ -149,11 +149,11 @@ const ProductDetails = (props) => {
             </Col> }
             { !userInfo &&
             <Col lg="8">
-              <p>Wenn Sie nicht eingelogttt</p>
+              <p>Nehmen Sie Kontakt auf zum Anbietenden.</p>
  
             <Link to="/login">
             <Button className='btn-btn' style={{background:'#b54f30', marginBottom:'30px'}}>
-                        Zum Anmelden
+                        Zur Anmeldung
             </Button>
             </Link>
    

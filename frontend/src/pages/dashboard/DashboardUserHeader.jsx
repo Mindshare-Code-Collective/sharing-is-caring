@@ -33,7 +33,7 @@ export default function DashboardUserHeader(props) {
         <div className="col-md-12">
           <div className="satteb text_align_center">
             <p>
-                Schön, dass du angemeldet bist und unseren Service nutzt!
+                Schön, dass Du angemeldet bist und unseren Service nutzt!
             </p>
             <h4>Viel Spaß beim Verschenken und Tauschen!</h4>
             <i> <img src={userImage} alt="#" style={{ width: "150px", borderRadius:"50%", height:"150px" }} /></i>
