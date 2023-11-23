@@ -5,7 +5,9 @@ import { Container, Row, Col, Input } from "reactstrap";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
-import Garten from "../../assets/Garten.jpg";
+import Garten from "../../assets/garten3.jpg";
+import Shose from '../../assets/shose1.jpg';
+import Deco from '../../assets/deco5.jpg';
 import Kleidung from "../../assets/Kleidung.jpg";
 import Alle from "../../assets/Alle.png";
 import Elektronik from "../../assets/Elektronik.png";
@@ -149,6 +151,14 @@ const Home = () => {
                 <div>
                   <img src={Spielzeug} alt="Spielzeug" />
                   <p className="legend">Spielzeug</p>
+                </div>
+                <div>
+                  <img src={Shose} alt="Schuhe" />
+                  <p className="legend">Schuhe</p>
+                </div>
+                <div>
+                  <img src={Deco} alt="Decoration" />
+                  <p className="legend">Decoration</p>
                 </div>
               </Carousel>
             </Col>

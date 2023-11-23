@@ -14,10 +14,18 @@
     width: 300px;
     margin-top: 50px;
   }
+
+.add-new-product {
+  font-family: "Courgette", cursive;
+  font-family: "Dancing Script", cursive;
+  font-family: "Satisfy", cursive;
+}
+
   .product-image-details{
     display:flex;
     margin-right: 10px;
   }
+
   .product-image {
     margin-right: 10px;
   }
@@ -63,6 +71,7 @@
     font-size: 1rem;
     color: #888;
     margin: 5px 0;
+ 
   }
   .product-list {
     display: flex;
@@ -70,6 +79,12 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+.product-card:hover {
+  transform:scale(1.1);
+  transition: 1s;
+  }
+
 
   .product-btn-btn {
     border-radius: 20px;
@@ -80,3 +95,4 @@
     color:white;
   }
   
+

@@ -97,7 +97,7 @@ export default function AddNewProduct(props) {
   };
 
   return (
-    <Modal size="lg" show={showModal} onHide={handleToggleModal}>
+    <Modal size="lg" show={showModal} className='add-new-product' onHide={handleToggleModal}>
       <Modal.Header closeButton>
         <Modal.Title>Add Neues Produkt</Modal.Title>
       </Modal.Header>
@@ -232,7 +232,7 @@ export default function AddNewProduct(props) {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleSubmit}>
+        <Button variant="primary" className="btn-btn" onClick={handleSubmit}>
           Add
         </Button>
       </Modal.Footer>
