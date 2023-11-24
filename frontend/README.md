@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+# MindShare Code Collective: Sharing is Caring Tauschplattform (Frontend)
+
+Mit dieser Frontend App können Sie unserer Tauschbörse beitreten und mit unserer netten Community in Kontakt treten.
+
+# Page Overview
+
+![Frontend_1](./src/assets/images/Frontend_1.png)
+
+![Frontend_2](./src/assets/images/Frontend_2.png)
+
+# Usage
+
+Um die App zu starten tippen sie im Terminal den Befehl "npm run start" ein.
+
+# Technologien
+
+React
+Axios
+Bootstrap
+Sass
+Slick-Carousel
+Base-64
+Fontawesome
+
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +94,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ -->
