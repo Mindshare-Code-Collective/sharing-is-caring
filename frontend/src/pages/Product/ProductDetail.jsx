@@ -97,11 +97,23 @@ const ProductDetails = (props) => {
               />
             </div>
           </Col>
-          <Col className="" >
-            <h1 style={{color:'#b54f30'}}>{product.name}</h1>
+          <Col className="flex-container" >
+            <Row>
+           <Col><h1 style={{color:'#b54f30'}}>{product.name}</h1> </Col> 
+          <Col>
+          <div style={{border:'solid 3px #0b9595', borderRadius:'18px', width:'200px'}} > 
+              <h5 style={{paddingTop:'15px',marginLeft:'15px'}}>ANBIETER:</h5>
+                <p style={{paddingTop:'15px'}}> {userInfo
+                  ? userInfo.name.charAt(0).toUpperCase() +
+                    userInfo.name.slice(1)
+                  : "User"}</p>
+                  </div>
+              </Col>  
+           </Row>
             <hr />
 
             <div className="flex-container">
+      
               <div>
                 <h5>ART:</h5>
                 <p>{product.category}</p>
@@ -121,6 +133,9 @@ const ProductDetails = (props) => {
               <div className="description-row">
                 <h5>BESCHREIBUNG:</h5>
                 <p>{product.description}</p>
+              </div>
+              <div>
+             
               </div>
             </div>
           </Col>
