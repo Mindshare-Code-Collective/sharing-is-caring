@@ -23,7 +23,7 @@ const Contact = () => {
         <br />
         <br />
         <Row  sm='12' className="col-lg-12 col-md-12  ">
-          <h3>UNSERE TEAM</h3>
+          <h3>UNSERES TEAM</h3>
           <br />
           <br />
           <br />
@@ -67,7 +67,7 @@ const Contact = () => {
             <h3 className="py-4 ">KONTAKTIEREN SIE UNS</h3>
 
             <h5>Email:</h5>
-            <p>tauchbörse@development.com</p>
+            <p>sharing-is-caring@mscc.com</p>
             <br />
             <h5>Phone:</h5>
             <p>+49 1234567890</p>
@@ -92,7 +92,7 @@ const Contact = () => {
                     className="form-control "
                     id="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="E-Mail"
                     type="email"
                     required
                   />
@@ -104,7 +104,7 @@ const Contact = () => {
                 className="form-control"
                 id="message"
                 name="message"
-                placeholder="Message"
+                placeholder="Ihre Nachricht..."
                 rows="5"
                 required
               ></textarea>
@@ -127,8 +127,8 @@ const Contact = () => {
             <Col lg="6" className="mb-5">
               <h5>Newsletter abonnieren</h5>
               <p>
-                Newsletter fasst für Sie das Wichtigste vom Tag auf einen Blick
-                zusammen. verpassen Sie nichts. Jetzt eintragen und anmelden!
+                Der Newsletter fasst für Sie das Wichtigste vom Tag auf einen Blick 
+                &nbsp; zusammen, damit Sie nichts verpassen! Jetzt eintragen und anmelden!
               </p>
             </Col>
             <Col lg="6" className="mb-5">
@@ -137,7 +137,7 @@ const Contact = () => {
                 <input
                   className=" mr-sm-2 "
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="E-Mail"
                   style={{
                     height: "35px",
                     borderRadius: "5px",
