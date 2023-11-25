@@ -15,7 +15,7 @@ export default function Dashboard(props) {
   return (
     <div className="sec1">
       <DashboardUserHeader userInfo={userInfo}/>
-      <div className="text-center fs-2 mt-5"><h3>MEINE PRODUCTE</h3></div>
+      <div className="text-center fs-2 mt-5"><h3>MEINE PRODUKTE</h3></div>
       <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 m-5" >
 
       {

@@ -115,7 +115,7 @@ const ProductDetails = (props) => {
             <div className="flex-container">
       
               <div>
-                <h5>ART:</h5>
+                <h5>KATEGORIE:</h5>
                 <p>{product.category}</p>
               </div>
               <div>
