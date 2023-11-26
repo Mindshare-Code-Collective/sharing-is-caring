@@ -13,6 +13,7 @@ const ProductDetails = (props) => {
     const addMessageToConversationUrl = "http://localhost:3333/messages/addto";
 
     const {products, userInfo, userObject} = props;
+    console.log(products)
     const navigate = useNavigate();
 
     const { id } = useParams();
@@ -103,10 +104,9 @@ const ProductDetails = (props) => {
           <Col>
           <div style={{border:'solid 3px #0b9595', borderRadius:'18px', width:'200px'}} > 
               <h5 style={{paddingTop:'15px',marginLeft:'15px'}}>ANBIETER:</h5>
-                <p style={{paddingTop:'15px'}}> {userInfo
-                  ? userInfo.name.charAt(0).toUpperCase() +
-                    userInfo.name.slice(1)
-                  : "User"}</p>
+                <p style={{paddingTop:'15px'}}> {product.user.name.charAt(0).toUpperCase() +
+                    product.user.name.slice(1)
+                  }</p>
                   </div>
               </Col>  
            </Row>

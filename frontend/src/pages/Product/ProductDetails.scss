@@ -50,3 +50,21 @@ h5 {
     background: #212245 !important;
     border-radius: 20px;
 }
+
+@media (min-width: 100px) and (max-width: 799px) {
+    .product-img img {
+        width: 400px;
+        border-radius: 18px;
+        margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width: 800px) and (max-width: 980px) {
+    .product-img img {
+        width: 480px;
+        height: 450px;
+        border-radius: 18px;
+    }
+    }
+  
+  

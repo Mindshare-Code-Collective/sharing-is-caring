@@ -32,7 +32,9 @@ const createProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find().sort({ uploadedAt: -1 }).limit(15);
+    // const products = await Product.find().sort({ uploadedAt: -1 }).limit(15);
+    const products = await Product.find().populate(['user'])
+
     res.status(200).json({success:true, data: products})
     }
    catch (error) {
